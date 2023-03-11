@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var cors = require('cors')
+const cors = require('cors')
 const favicon = require('express-favicon');
 const logger = require('morgan');
 
