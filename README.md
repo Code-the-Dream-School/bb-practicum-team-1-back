@@ -27,4 +27,4 @@ in-case you need assistance from your mentors.
 ![browser server](images/back-end-running-browser.png)
 
 
->It is good practice for your **entire team** to run the same version of Node. You can use NVM to manage multiple versions of Node on your machine.
+>It is good practice for your **entire team** to run the same version of Node. You can use [NVM](https://github.com/nvm-sh/nvm#usage) to manage multiple versions of Node on your machine.
