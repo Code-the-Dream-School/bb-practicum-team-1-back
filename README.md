@@ -18,7 +18,12 @@ in-case you need assistance from your mentors.
 6. Open http://localhost:8000/api/v1/ with your browser to test.
 7. Your back-end server is now running. You can now run the front-end app.
 
+#### Running the back-end server in Visual Studio Code
+
 ![vsc running](images/back-end-running-vsc.png)
+
+#### Testing the back-end server API in the browser
+
 ![browser server](images/back-end-running-browser.png)
 
 
