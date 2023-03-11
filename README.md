@@ -26,5 +26,4 @@ in-case you need assistance from your mentors.
 
 ![browser server](images/back-end-running-browser.png)
 
-
->It is good practice for your **entire team** to run the same version of Node. You can use [NVM](https://github.com/nvm-sh/nvm#usage) to manage multiple versions of Node on your machine.
+>Update the .node-version file to match the version of Node.js the **team** is using. This is used by Render.com to [deploy the app](https://render.com/docs/node-version).
