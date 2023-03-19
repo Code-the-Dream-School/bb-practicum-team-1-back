@@ -8,51 +8,66 @@ const UserSchema = new mongoose.Schema({
         required: [true, 'Please provide valid email'],
         match: [
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            'Please provide valid email'
+            'Please provide valid email',
         ],
-        unique: true
+        unique: true,
     },
     password: {
         type: String,
-        required:[true, 'Please provide password'],
-        minlength: [8, 'Password must contain a minimum of 8 characters']
+        required: [true, 'Please provide password'],
+        minlength: [8, 'Password must contain a minimum of 8 characters'],
     },
     username: {
         type: String,
-        required: [true, 'Please provide username']
+        required: [true, 'Please provide username'],
     },
     givenName: {
         type: String,
-        required: [true, 'Please provide given name']
+        required: [true, 'Please provide given name'],
     },
     familyName: {
         type: String,
-        required: [true, 'Please provide family name']
+        required: [true, 'Please provide family name'],
     },
     dateOfBirth: {
         type: Date,
-        required: [true, 'Please provide date of birth']
+        required: [true, 'Please provide date of birth'],
     },
     address: {
         type: String,
-        //required: [true, 'Please provide address']
+        required: [true, 'Please provide address'],
     },
-    role:{
+    latitude: {
+        type: Number,
+        required: [true],
+        min: -90,
+        max: 90,
+    },
+    longitude: {
+        type: Number,
+        required: [true],
+        min: -180,
+        max: 180,
+    },
+    role: {
         type: String,
-        enum:['admin', 'user'],
-        default: 'user'
-    }
-
+        enum: ['admin', 'user'],
+        default: 'user',
+    },
 })
 
-UserSchema.pre('save', async function(){
+UserSchema.pre('save', async function () {
     const salt = await bcrypt.genSalt(10)
-    this.password = await bcrypt.hash(this.password, salt)        
+    this.password = await bcrypt.hash(this.password, salt)
 })
-UserSchema.methods.createJWT = function(){
-    return jwt.sign({ userId: this._id, name: this.name }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_LIFETIME
-    })
+UserSchema.methods.createJWT = function () {
+    return jwt.sign(
+        { userId: this._id, name: this.name },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_LIFETIME,
+        }
+    )
 }
 
 module.exports = mongoose.model('User', UserSchema)
