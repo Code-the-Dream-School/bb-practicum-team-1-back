@@ -18,10 +18,12 @@ const authentication = async(req, res) =>{
         throw new UnauthenticatedError('Credentials are invalid')
     }
     const token = user.createJWT()  
-    res.status(StatusCodes.CREATED).json({ user: { email: user.email}, token })
+    res.status(StatusCodes.CREATED).json({ user: { email: user.email , username: user.username}, token })
 }
 
 module.exports = {
     signUp,
-    authentication
+    authentication,
+   
+
 }

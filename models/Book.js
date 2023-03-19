@@ -3,6 +3,11 @@ const mongoose = require ('mongoose')
 const BookSchema = new mongoose.Schema({
     
     //options which should be considered when sharing a book!
+
+    userName:{
+        type:String,
+        required : true
+    },
     title : {
         type : String ,
         required : [true , 'Please provide title for your book.']
@@ -18,10 +23,13 @@ const BookSchema = new mongoose.Schema({
         enum : ['kids' , 'adults'],
         default : 'kids'
     },
-    createdBy : {
+    publishingYear:{
+     type : Number,
+    },
+    owner : {
      type : mongoose.Types.ObjectId,
      ref: 'User',
-     //required : [true],
+     required : [true],
   
     },
     status : {
