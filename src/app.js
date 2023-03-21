@@ -7,7 +7,7 @@ const cors = require('cors')
 const favicon = require('express-favicon')
 const logger = require('morgan')
 
-//const mainRouter = require('./routes/mainRouter.js');
+const mainRouter = require('./routes/mainRouter.js')
 const userRouter = require('./routes/user')
 
 //authentication middleware
@@ -23,11 +23,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(logger('dev'))
 app.use(express.static('public'))
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'))
 
 // routes
-//app.use('/api/v1', mainRouter);
-app.use('/api/v1', userRouter)
+app.use('/api/v1', mainRouter)
+app.use('/api/v1/user', userRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
