@@ -28,6 +28,8 @@ const authentication = async (req, res) => {
     if (!user) {
         throw new UnauthenticatedError('Credentials are invalid')
     }
+
+    const token = user.createJWT()
     res.status(StatusCodes.CREATED).json({
         user: {
             email: user.email,
@@ -39,6 +41,7 @@ const authentication = async (req, res) => {
             latitude: user.latitude,
             longitude: user.longitude,
         },
+        token,
     })
 }
 
