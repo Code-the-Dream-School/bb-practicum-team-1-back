@@ -50,7 +50,7 @@ const BookSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-    gener: {
+    genre: {
         type: String,
         enum:['Fantasy',
             'Science Fiction',

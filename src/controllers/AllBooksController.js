@@ -1,32 +1,27 @@
-
-const { StatusCodes } = require("http-status-codes")
-const { model, STATES } = require("mongoose")
-const Book = require("../../models/Book")
-const User = require("../../models/User")
-
+const { StatusCodes } = require("http-status-codes");
+const { model, STATES } = require("mongoose");
+const Book = require("../../models/Book");
+const User = require("../../models/User");
 
 //get single book
-const getSingleBook = async(req , res) =>{
-   const {
-        params:{id:bookId}
-    } = req
 
-    const book = await Book.findOne({
-       _id:bookId 
-    })
-    if(!book){
-        throw new NotFoundError(`No book available with this id ${bookId}`)
-    }
-    var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `/api/v1/book/image/${bookId}`
-    console.log('URL',book.imageURL)
-    res.status(StatusCodes.OK).json(y)
+const getSingleBook = async (req, res) => {
+  const {
+    params: { id: bookId },
+  } = req;
 
-}
+  const book = await Book.findOne({
+    _id: bookId,
+  });
+  if (!book) {
+    throw new NotFoundError(`No book available with this id ${bookId}`);
+  }
+  var y = JSON.parse(JSON.stringify(book));
+  y.imageURL = `/api/v1/book/image/${bookId}`;
+  res.status(StatusCodes.OK).json(y);
+};
 
-
-
-//get All Books
+//get All Books for each user
 
 const getAllBooks = async (req, res) => {
     
@@ -35,13 +30,12 @@ const getAllBooks = async (req, res) => {
     const queryObject = {} //instead of putting this into find we can create a new object for that.
 
     if(title){
-        console.log(title)
+       queryObject.title = title; 
     }
     if(author){
        queryObject.author = author; 
     }
    let result = Book.find(queryObject)  
-   console.log("result",result)
    if(sort){  //sorting our response based on user slection.
        const sortList = sort.split(',').join(' '); //splitting sort options as an array and join them together!
        result = result.sort(sortList)
@@ -74,12 +68,72 @@ const getAllBooks = async (req, res) => {
 
 }
 
-const getImage = async (req , res) =>{
-    const book = await Book.findById(req.params.id)
-    res.set("content-Type" , book.image.contentType)
-    res.status(StatusCodes.OK).send(book.image.buffer)
-}  
+//get All books all users
+const getAllBooksUser = async (req, res) => {
+  const books = await Book.find({ owner: req.user.userId }).sort("createdAt");
+  const bookMapped = books.map((x) => {
+    var y = JSON.parse(JSON.stringify(x));
+    if (y.image && y.image.buffer) {
+      delete y.image;
+      y.imageURL = `/api/v1/book/image/${x.id}`;
+    }
+    return y;
+  });
 
+  res
+    .status(StatusCodes.OK)
+    .json({ books: bookMapped, count: bookMapped.length });
+};
 
+//create book
 
-module.exports = {getSingleBook,getImage, getAllBooks}
+const createBook = async (req, res) => {
+  const { userId, username } = req.user;
+
+  req.body.owner = userId;
+  req.body.userName = username;
+
+  if (req.file) {
+    req.body.image = {
+      buffer: req.file.buffer,
+      contentType: req.file.mimetype,
+    };
+  }
+  const book = await Book.create(req.body);
+  res.status(StatusCodes.CREATED).json({ book });
+};
+
+//delete book
+const deleteBook = async (req, res) => {
+  const {
+    user: { userId }, //located in the request which come from auth middleware.
+    params: { id: bookId }, // comming from params
+  } = req;
+
+  const book = await Book.findByIdAndRemove({
+    _id: bookId,
+    owner: userId,
+  });
+  if (!bookId) {
+    throw new NotFoundError(`No bookId available with this id ${bookId}`);
+  }
+  res.status(StatusCodes.OK).json({ book });
+};
+
+//update book info
+
+//getImage
+const getImage = async (req, res) => {
+  const book = await Book.findById(req.params.id);
+  res.set("content-Type", book.image.contentType);
+  res.status(StatusCodes.OK).send(book.image.buffer);
+};
+
+module.exports = {
+  getSingleBook,
+  getImage,
+  getAllBooks,
+  createBook,
+  getAllBooksUser,
+  deleteBook,
+};
