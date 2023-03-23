@@ -13,8 +13,8 @@ const auth = async (req, res, next) => {
 
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET)
-
-        req.user = { userId: payload.userId, name: payload.name }
+        // attach the user to the product routes
+        req.user = { userId: payload.userId, username: payload.username }
         next()
     } catch (error) {
         throw new UnauthenticatedError(
