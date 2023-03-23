@@ -2,6 +2,7 @@ const { StatusCodes } = require('http-status-codes')
 const { model, STATES } = require('mongoose')
 const Book = require('../../models/Book')
 const User = require('../../models/User')
+const { BadRequestError, NotFoundError } = require('../../errors')
 
 //get single book
 
@@ -12,7 +13,7 @@ const getSingleBook = async (req, res) => {
 
     const book = await Book.findOne({
         _id: bookId,
-    })
+    }).populate('owner', 'username')
     if (!book) {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
@@ -125,6 +126,32 @@ const deleteBook = async (req, res) => {
 
 //update book info
 
+const updatebook = async (req, res) => {
+    const {
+        //body :{title , price},
+        user: { userId },
+        params: { id: bookId },
+    } = req
+
+    if (req.file) {
+        req.body.image = {
+            buffer: req.file.buffer,
+            contentType: req.file.mimetype,
+        }
+    }
+
+    const book = await Book.findByIdAndUpdate(
+        { _id: bookId, owner: userId },
+        req.body, //the part which gonna be upadated
+        { new: true, runValidators: true }
+    )
+    if (!bookId) {
+        throw new NotFoundError(`No book available with this id ${bookId}`)
+    }
+
+    res.status(StatusCodes.OK).json({ book })
+}
+
 //getImage
 const getImage = async (req, res) => {
     const book = await Book.findById(req.params.id)
@@ -139,4 +166,5 @@ module.exports = {
     createBook,
     getAllBooksUser,
     deleteBook,
+    updatebook,
 }
