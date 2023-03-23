@@ -4,10 +4,6 @@ const BookSchema = new mongoose.Schema(
     {
         //options which should be considered when sharing a book!
 
-        userName: {
-            type: String,
-            required: true,
-        },
         title: {
             type: String,
             required: [true, 'Please provide title for your book.'],
@@ -94,7 +90,6 @@ const BookSchema = new mongoose.Schema(
         author: {
             type: String,
             required: [true, 'Please provide author name.'],
-            default: 15,
         },
     },
     { timestamps: true } //  <=createdAt and updatedAt dates

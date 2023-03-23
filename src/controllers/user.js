@@ -41,6 +41,7 @@ const authentication = async (req, res) => {
             latitude: user.latitude,
             longitude: user.longitude,
         },
+        token,
     })
 }
 
