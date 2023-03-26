@@ -17,13 +17,11 @@ const {
 router.route('/user').get(authenticateUser, getAllBooksUser)
 router
     .route('/:id')
-    .get(getSingleBook)
     .delete(authenticateUser, deleteBook)
     .post(authenticateUser, updatebook)
-router
-    .route('/')
-    .get(getAllBooks)
-    .post(authenticateUser, upload.single('image'), createBook)
+router.route('/').post(authenticateUser, upload.single('image'), createBook)
 router.route('/image/:id').get(getImage)
 
+router.route('/:id').get(getSingleBook)
+router.route('/').get(getAllBooks)
 module.exports = router

@@ -22,7 +22,7 @@ const getSingleBook = async (req, res) => {
     res.status(StatusCodes.OK).json(y)
 }
 
-//get All Books for each user
+//get All Books for all user
 
 const getAllBooks = async (req, res) => {
     const { title, author, sort, fields } = req.query
@@ -44,7 +44,7 @@ const getAllBooks = async (req, res) => {
     }
 
     if (fields) {
-        //showing our responce based on user selected fields.
+        //showing our response based on user selected fields.
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
     }
@@ -69,7 +69,7 @@ const getAllBooks = async (req, res) => {
     })
 }
 
-//get All books all users
+//get All books user(owner)
 const getAllBooksUser = async (req, res) => {
     const books = await Book.find({ owner: req.user.userId }).populate(
         'owner',
@@ -110,16 +110,20 @@ const createBook = async (req, res) => {
 //delete book
 const deleteBook = async (req, res) => {
     const {
-        user: { userId }, //located in the request which come from auth middleware.
-        params: { id: bookId }, // comming from params
+        user: { userId },
+        params: { id: bookId },
     } = req
 
-    const book = await Book.findByIdAndRemove({
-        _id: bookId,
+    const book = await Book.deleteOne({
         owner: userId,
+        _id: bookId,
     })
+    const owner = book.owner
     if (!bookId) {
         throw new NotFoundError(`No bookId available with this id ${bookId}`)
+    }
+    if (userId !== owner) {
+        throw new BadRequestError('you should be the owner')
     }
     res.status(StatusCodes.OK).json({ book })
 }
@@ -140,15 +144,18 @@ const updatebook = async (req, res) => {
         }
     }
 
-    const book = await Book.findByIdAndUpdate(
+    const book = await Book.updateOne(
         { _id: bookId, owner: userId },
         req.body, //the part which gonna be upadated
         { new: true, runValidators: true }
     )
+    const owner = book.owner
     if (!bookId) {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
-
+    if (userId !== owner) {
+        throw new BadRequestError('you should be the owner')
+    }
     res.status(StatusCodes.OK).json({ book })
 }
 
