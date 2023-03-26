@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "6414b320fed4b0cf8e8912d0",
+        "email": "ellie123@gmail.com",
+        "password": "secret123",
+        "username": "elliesweet",
+        "givenName": "ellie",
+        "familyName": "Smith",
+        "dateOfBirth": "01-10-1983",
+        "address": "240 Oak Hill Drive, Liberty Hill, Texas 78642",
+        "latitude": 30,
+        "longitude": -98
+    },
+    {
+        "_id": "641cc0a509842e20b0bb987f",
+        "email": "sam123@gmail.com",
+        "password": "secret234",
+        "username": "sammy00",
+        "givenName": "sam",
+        "familyName": "lee",
+        "dateOfBirth": "06-01-1992",
+        "address": "1210 Chambers Rd, Columbus, Ohio 43212",
+        "latitude": 40,
+        "longitude": -83
+    },
+    {
+        "_id": "641cd404692aeccd4ad96873",
+        "email": "zoeyrhy@gmail.com",
+        "password": "secret345",
+        "username": "zoeyRhy",
+        "givenName": "zoey",
+        "familyName": "rhymes",
+        "dateOfBirth": "12-16-1999",
+        "address": "270 Delaware Ave,Buffalo, New York 14202",
+        "latitude": 43,
+        "longitude": -79
+    }
+]
