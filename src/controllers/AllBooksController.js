@@ -1,8 +1,12 @@
 const { StatusCodes } = require('http-status-codes')
 const { model, STATES } = require('mongoose')
+//const { distance, point } = require('gps-distance')
 const Book = require('../../models/Book')
 const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
+const { count } = require('console')
+const collect = require('collect.js')
+const findClosestUserAddress = require('../../middleware/findClosestUserAddress')
 
 //get single book
 
@@ -25,7 +29,8 @@ const getSingleBook = async (req, res) => {
 //get All Books for all user
 
 const getAllBooks = async (req, res) => {
-    const { title, author, sort, fields } = req.query
+    const { title, author, sort, fields, searchRadius, latitude, longitude } =
+        req.query
     const queryObject = {} //instead of putting this into find we can create a new object for that.
 
     if (title) {
@@ -34,7 +39,11 @@ const getAllBooks = async (req, res) => {
     if (author) {
         queryObject.author = author
     }
-    let result = Book.find(queryObject).populate('owner', 'username')
+    let result = Book.find(queryObject).populate(
+        'owner',
+        'username latitude longitude'
+    )
+
     if (sort) {
         //sorting our response based on user slection.
         const sortList = sort.split(',').join(' ') //splitting sort options as an array and join them together!
@@ -48,24 +57,36 @@ const getAllBooks = async (req, res) => {
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
     }
+    if (longitude && latitude) {
+        const closestUserAddress = await findClosestUserAddress(
+            latitude,
+            longitude,
+            searchRadius
+        )
+
+        result = closestUserAddress
+    }
 
     const page = Number(req.query.page) || 1 //user can enter page number and the default value would be 1.
     const limit = Number(req.query.limit) || 10 //user can limit number of items and the default is 10.
     const skip = (page - 1) * limit
-    result = result.skip(skip).limit(limit)
-    const books = await result
+    const collection = collect(result)
+    const skippedItems = collection.skip(skip)
+    const books = collection
+    const bookMapped = books
+        .map((x) => {
+            var y = JSON.parse(JSON.stringify(x))
+            if (y.image && y.image.buffer) {
+                delete y.image
+                y.imageURL = `/api/v1/books/image/${x.id}`
+            }
+            return y
+        })
+        .slice(0, limit)
 
-    const bookMapped = books.map((x) => {
-        var y = JSON.parse(JSON.stringify(x))
-        if (y.image && y.image.buffer) {
-            delete y.image
-            y.imageURL = `/api/v1/books/image/${x.id}`
-        }
-        return y
-    })
     res.status(StatusCodes.OK).json({
         books: bookMapped,
-        count: bookMapped.length,
+        count: bookMapped.items.length,
     })
 }
 
@@ -114,18 +135,23 @@ const deleteBook = async (req, res) => {
         params: { id: bookId },
     } = req
 
-    const book = await Book.deleteOne({
-        owner: userId,
+    const book = await Book.findOne({
         _id: bookId,
     })
-    const owner = book.owner
-    if (!bookId) {
-        throw new NotFoundError(`No bookId available with this id ${bookId}`)
+
+    if (!book) {
+        throw new NotFoundError(`No book available with this id ${bookId}`)
     }
-    if (userId !== owner) {
+
+    const owner = book.owner.toString() // because owner is stored as an objectId I need to convert it to string to compare it with Object Id
+
+    if (owner !== userId) {
         throw new BadRequestError('you should be the owner')
     }
-    res.status(StatusCodes.OK).json({ book })
+
+    await book.deleteOne({})
+
+    res.status(StatusCodes.OK).json({ msg: 'Book successfully delted.' })
 }
 
 //update book info
@@ -144,12 +170,13 @@ const updatebook = async (req, res) => {
         }
     }
 
-    const book = await Book.updateOne(
+    const book = await Book.findOneAndUpdate(
         { _id: bookId, owner: userId },
         req.body, //the part which gonna be upadated
         { new: true, runValidators: true }
     )
-    const owner = book.owner
+    const owner = book.owner.toString()
+
     if (!bookId) {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
