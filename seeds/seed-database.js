@@ -1,6 +1,4 @@
 require('dotenv').config()
-const express = require('express')
-const app = express()
 const fs = require('fs')
 const colors = require('colors')
 const connectDB = require('../db/connect')
@@ -26,4 +24,3 @@ const seedData = async () => {
 }
 
 seedData()
-console.log(process.argv)

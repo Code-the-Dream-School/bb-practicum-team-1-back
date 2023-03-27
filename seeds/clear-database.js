@@ -1,6 +1,4 @@
 require('dotenv').config()
-const express = require('express')
-const app = express()
 const colors = require('colors')
 const connectDB = require('../db/connect')
 
@@ -22,4 +20,3 @@ const deleteData = async () => {
 }
 
 deleteData()
-console.log(process.argv)
