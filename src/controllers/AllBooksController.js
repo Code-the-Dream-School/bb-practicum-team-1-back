@@ -1,6 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
 const { model, STATES } = require('mongoose')
-//const { distance, point } = require('gps-distance')
 const Book = require('../../models/Book')
 const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
