@@ -1,0 +1,162 @@
+[
+    {
+        "_id": "64154dde2490d1529a43e057",
+        "title": "Women Who Lead",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2022,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "borrowed",
+        "description": "Are you ready to become a leader at the top of your game? Start by unlocking the secrets which will bring you unyielding success! Women Who Lead is an easy-to-read guide offering tips to achieve your dreams. Learn from successful female mentors who will show you the process step by step!",
+        "genre": "Personal Growth",
+        "author": "Charlene Helm Noelle McGough",
+        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+    },
+    {
+        "_id": "64154dde2490d1529a43f298",
+        "title": "Mommy as a Leader",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 2021,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "This children's book teaches children about what it means to be a leader. Parents/guardians/loved ones are encouraged to read this book with children to discuss positive role models, leadership goals, and what it means to be a leader in a child's future.",
+        "genre": "Self-Help & Motivational",
+        "author": "Jasmine Garland McKinney Blake McKinney",
+        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+    },
+    {
+        "_id": "64154dde2490d1529a43e03f",
+        "title": "Ghosts",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1999,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "borrowed",
+        "description": "Catrina and her family are moving to the coast of Northern California because her little sister, Maya, is sick. Cat isn't happy about leaving her friends for Bahía de la Luna, but Maya has cystic fibrosis and will benefit from the cool, salty air that blows in from the sea. As the girls explore their new home, a neighbor lets them in on a secret: There are ghosts in Bahía de la Luna. Maya is determined to meet one, but Cat wants nothing to do with them. As the time of year when ghosts reunite with their loved ones approaches, Cat must figure out how to put aside her fears for her sister's sake -- and her own.Raina Telgemeier has masterfully created a moving and insightful story about the power of family and friendship, and how it gives us the courage to do what we never thought possible.",
+        "genre": "Horror",
+        "author": "Raina Telgemeier",
+        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+    },
+    {
+        "_id": "6416956690945f31fefa1fcd",
+        "title": "The House on Mango Street",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2013,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "The great thing about “The House On Mango Street” is that it’s an interesting read. It’s written from the point of view of the writer. You can really feel what the protagonist (the main character) feels. The sentences are really short so it’s also easy to understand. There are a few challenging words and a little bit of descriptive language, but you can usually understand them with the context. Another great thing about this is book is that it gives you a deep understanding of a different culture.",
+        "genre": "Mystery",
+        "author": "Sandra Cisneros",
+        "imageURL": "/api/v1/books/image/6416956690945f31fefa1fcd"
+    },
+    {
+        "_id": "6416960090945f31fefa1fcf",
+        "title": "Thirteen Reasons Why",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2000,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "This story takes place in the present, which means the writer writes using simple grammar. All sentences are short and the vocabulary is relatively easy. The interesting grammar and short paragraphs make this a quick and easy book for ESL learners. This is an award-winning book and on the NY Times best books list, so it’s worth a read. This book deals with some heavy issues. If you’re looking for something light and happy to read over the summer vacation, you should not read this book.",
+        "genre": "History",
+        "author": "Jay Asher",
+        "imageURL": "/api/v1/books/image/6416960090945f31fefa1fcf"
+    },
+    {
+        "_id": "6416969b90945f31fefa1fd1",
+        "title": "Peter Pan",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1990,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "Almost everyone knows the story of “Peter Pan” which is why this is an easy read. Being familiar with a story already helps the reader to understand the text better. This book is aimed at children, but it continues to be enjoyed by adults around the world too.",
+        "genre": "History",
+        "author": "J.M. Barrie",
+        "imageURL": "/api/v1/books/image/6416969b90945f31fefa1fd1"
+    },
+    {
+        "_id": "64228248dbfea3789fbbb86f",
+        "userName": "John",
+        "title": "Things We Never Got Over",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2002,
+        "owner": {
+            "_id": "641a9ac03cf5c88e0ce54c35",
+            "username": "John"
+        },
+        "status": "open",
+        "description": "Naomi wasn’t just running away from her wedding. She was riding to the rescue of her estranged twin to Knockemout, Virginia, a rough-around-the-edges town where disputes are settled the old-fashioned way…with fists and beer. Usually in that order.",
+        "genre": "Travel",
+        "author": " Lucy Score "
+    },
+    {
+        "_id": "641b33f9a4b78376843f6c61",
+        "userName": "Harry",
+        "title": "Beautiful World, Where Are You",
+        "language": "English",
+        "ageRange": "adults",
+        "owner": {
+            "_id": "64228248dbfea3789fbbb870",
+            "username": "Harry"
+        },
+        "status": "open",
+        "description": "New York Times bestselling author Sally Rooney has returned with a sharp, romantic drama, Beautiful World, Where Are You. Two separate relationships are in chaos, threatening to ruin friendships. Vogue declares that the author has “invented a sensibility entirely of her own: Sunny and sharp.",
+        "genre": "Travel",
+        "author": "  Sally Rooney "
+    },
+    {
+        "_id": "641b35d0ca71d42c4252e2b3",
+        "userName": "Harry",
+        "title": "Beautiful World, Where Are You",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2002,
+        "owner": {
+            "_id": "64228248dbfea3789fbbb870",
+            "username": "Harry"
+        },
+        "status": "open",
+        "description": "New York Times bestselling author Sally Rooney has returned with a sharp, romantic drama, Beautiful World, Where Are You. Two separate relationships are in chaos, threatening to ruin friendships. Vogue declares that the author has “invented a sensibility entirely of her own: Sunny and sharp.",
+        "genre": "History",
+        "author": "Sally Rooney",
+        "imageURL": "/api/v1/books/image/641b35d0ca71d42c4252e2b3"
+    },
+
+    {
+        "_id": "641cccdc59bab455414b6cd5",
+        "title": "The Fault in Our Stars",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2012,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012. The title is inspired by Act 1, Scene 2 of Shakespeare's play Julius Caesar, in which the nobleman Cassius says to Brutus: Men at some time were masters of their fates, / The fault, dear Brutus, is not in our stars, / But in ourselves, that we are underlings.The story is narrated by Hazel Grace Lancaster, a 16-year-old girl with thyroid cancer that has affected her lungs. Hazel is forced by her parents to attend a support group where she subsequently meets and falls in love with 17-year-old Augustus Waters, an ex-basketball player, amputee, and survivor of osteosarcoma.",
+        "genre": "Romance",
+        "author": "John Green"
+    }
+]
