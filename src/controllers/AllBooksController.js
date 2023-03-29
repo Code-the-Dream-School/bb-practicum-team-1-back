@@ -5,7 +5,7 @@ const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const { count } = require('console')
 const collect = require('collect.js')
-const findClosestUserAddress = require('../../middleware/findClosestUserAddress')
+const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
 
 //get single book
 
@@ -56,24 +56,21 @@ const getAllBooks = async (req, res) => {
         const fieldsList = fields.split(',').join(' ')
         result = result.select(fieldsList)
     }
-    if (longitude && latitude) {
-        const closestUserAddress = await findClosestUserAddress(
+    const page = Number(req.query.page) || 1 //user can enter page number and the default value would be 1.
+    const limit = Number(req.query.limit) || 10 //user can limit number of items and the default is 10.
+    const skip = (page - 1) * limit
+    result = result.skip(skip).limit(limit)
+    const books = await result
+
+    if (longitude && latitude && searchRadius) {
+        const booksWithinRadius = findBooksWithinRadius(
+            //here I called the function to show me all those books less or equal to search radius!
+            books,
             latitude,
             longitude,
             searchRadius
         )
-
-        result = closestUserAddress
-    }
-
-    const page = Number(req.query.page) || 1 //user can enter page number and the default value would be 1.
-    const limit = Number(req.query.limit) || 10 //user can limit number of items and the default is 10.
-    const skip = (page - 1) * limit
-    const collection = collect(result)
-    const skippedItems = collection.skip(skip)
-    const books = collection
-    const bookMapped = books
-        .map((x) => {
+        bookMapped = booksWithinRadius.map((x) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
@@ -81,11 +78,20 @@ const getAllBooks = async (req, res) => {
             }
             return y
         })
-        .slice(0, limit)
+    } else {
+        bookMapped = books.map((x) => {
+            var y = JSON.parse(JSON.stringify(x))
+            if (y.image && y.image.buffer) {
+                delete y.image
+                y.imageURL = `/api/v1/books/image/${x.id}`
+            }
+            return y
+        })
+    }
 
     res.status(StatusCodes.OK).json({
         books: bookMapped,
-        count: bookMapped.items.length,
+        count: bookMapped.length,
     })
 }
 

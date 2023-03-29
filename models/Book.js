@@ -91,6 +91,12 @@ const BookSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Please provide author name.'],
         },
+        worldcatURL: {
+            type: String,
+        },
+        ISBN: {
+            type: String,
+        },
     },
     { timestamps: true } //  <=createdAt and updatedAt dates
 )
