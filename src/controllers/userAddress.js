@@ -5,8 +5,8 @@ const { StatusCodes } = require('http-status-codes')
 
 const getAddressCoordinate = async (req, res) => {
     const address = req.query.address
-    const API_KEY = process.env.API_KEY
-    const url = `https://api.geoapify.com/v1/geocode/search?text=${address}&apiKey=${API_KEY}`
+    const GEOAPIFY_API_KEY = process.env.GEOAPIFY_API_KEY
+    const url = `https://api.geoapify.com/v1/geocode/search?text=${address}&apiKey=${GEOAPIFY_API_KEY}`
 
     try {
         const result = await fetch(url)
@@ -19,8 +19,8 @@ const getAddressCoordinate = async (req, res) => {
 
 const getAddressAutocomplete = async (req, res) => {
     const address = req.query.address
-    const API_KEY = process.env.API_KEY
-    const url = `"https://api.geoapify.com/v1/geocode/autocomplete?text=${address}&apiKey=${API_KEY}`
+    const GEOAPIFY_API_KEY = process.env.GEOAPIFY_API_KEY
+    const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${address}&apiKey=${GEOAPIFY_API_KEY}`
 
     try {
         const result = await fetch(url)

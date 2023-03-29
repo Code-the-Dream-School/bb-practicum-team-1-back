@@ -32,7 +32,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1', mainRouter)
 app.use('/api/v1/books', allBooksRouter)
-app.use('/api/v1/user/address', addressRouter)
+app.use('/api/v1/address', addressRouter)
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
