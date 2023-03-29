@@ -7,18 +7,17 @@ const getAddressCoordinate = async (req, res) => {
     const address = req.query.address
     const API_KEY = process.env.API_KEY
     const url = `https://api.geoapify.com/v1/geocode/search?text=${address}&apiKey=${API_KEY}`
-    // const listAddress = await User.find({ address })
-    // res.status(StatusCodes.OK).json(listAddress)
+
     try {
         const result = await fetch(url)
         const data = await result.json()
-        console.log(data)
+        res.status(StatusCodes.OK).json(data)
     } catch (err) {
-        console.log(err)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
 }
 
-const getAddressAutocomplete = async (reqq, res) => {
+const getAddressAutocomplete = async (req, res) => {
     const address = req.query.address
     const API_KEY = process.env.API_KEY
     const url = `"https://api.geoapify.com/v1/geocode/autocomplete?text=${address}&apiKey=${API_KEY}`
@@ -26,9 +25,9 @@ const getAddressAutocomplete = async (reqq, res) => {
     try {
         const result = await fetch(url)
         const data = await result.json()
-        console.log(data)
+        res.status(StatusCodes.OK).json(data)
     } catch (err) {
-        console.log(err)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
 }
 module.exports = { getAddressCoordinate, getAddressAutocomplete }
