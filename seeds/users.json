@@ -1,0 +1,78 @@
+[
+    {
+        "_id": "6413f8ee3b117c5517f3f604",
+        "email": "Manizha@gmail.com",
+        "password": "secret1234",
+        "username": "Manizha",
+        "givenName": "ManizhaK",
+        "familyName": "Khorram",
+        "dateOfBirth": "12-16-1999",
+        "role": "user",
+        "address": "864 Seventh Ave, New York, NY  10019, United States",
+        "latitude": 40.6390599,
+        "longitude": -73.6398912
+    },
+    {
+        "_id": "641a9ac03cf5c88e0ce54c35",
+        "email": "John@gmail.com",
+        "password": "secret1234",
+        "username": "John",
+        "givenName": "JohnM",
+        "familyName": "ABC",
+        "dateOfBirth": "12-02-1991",
+        "role": "user",
+        "address": "6015 Farrington Ave, Alexandria, VA  22304, United States",
+        "latitude": 38.797667,
+        "longitude": -77.14066
+    },
+
+    {
+        "_id": "64228248dbfea3789fbbb870",
+        "email": "Harry@gmail.com",
+        "password": "secret1234",
+        "username": "Harry",
+        "givenName": "HarryP",
+        "familyName": "ABC",
+        "dateOfBirth": "12-02-1998",
+        "role": "user",
+        "address": "5816 Midlothian Tpke, Richmond, VA  23225, United States",
+        "latitude": 37.505305,
+        "longitude": -77.50425
+    },
+    {
+        "_id": "6414b320fed4b0cf8e8912d0",
+        "email": "ellie123@gmail.com",
+        "password": "secret123",
+        "username": "elliesweet",
+        "givenName": "ellie",
+        "familyName": "Smith",
+        "dateOfBirth": "01-10-1983",
+        "address": "240 Oak Hill Drive, Liberty Hill, Texas 78642",
+        "latitude": 30,
+        "longitude": -98
+    },
+    {
+        "_id": "641cc0a509842e20b0bb987f",
+        "email": "sam123@gmail.com",
+        "password": "secret234",
+        "username": "sammy00",
+        "givenName": "sam",
+        "familyName": "lee",
+        "dateOfBirth": "06-01-1992",
+        "address": "1210 Chambers Rd, Columbus, Ohio 43212",
+        "latitude": 40,
+        "longitude": -83
+    },
+    {
+        "_id": "641cd404692aeccd4ad96873",
+        "email": "zoeyrhy@gmail.com",
+        "password": "secret345",
+        "username": "zoeyRhy",
+        "givenName": "zoey",
+        "familyName": "rhymes",
+        "dateOfBirth": "12-16-1999",
+        "address": "270 Delaware Ave,Buffalo, New York 14202",
+        "latitude": 43,
+        "longitude": -79
+    }
+]

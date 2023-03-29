@@ -4,7 +4,10 @@
     "description": "Back-End Repo for Team 1 of Baboon/Bald Eagle Practicum",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon src/server.js"
+        "start": "nodemon src/server.js",
+        "seed-database": "node seeds/seed-database.js",
+        "clear-database": "node seeds/clear-database.js",
+        "reset-database": "npm run clear-database && npm run seed-database"
     },
     "author": "",
     "license": "ISC",
@@ -15,6 +18,7 @@
         "@types/react-dom": "^18.0.11",
         "bcryptjs": "^2.4.3",
         "collect.js": "^4.34.3",
+        "colors": "^1.4.0",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
         "eslint": "^8.36.0",
