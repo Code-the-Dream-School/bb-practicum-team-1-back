@@ -1,5 +1,4 @@
 require('dotenv').config()
-// const User = require('../../models/User')
 const fetch = require('node-fetch')
 const { StatusCodes } = require('http-status-codes')
 
