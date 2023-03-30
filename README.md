@@ -18,7 +18,7 @@ in-case you need assistance from your mentors.
 6. Open http://localhost:8000/api/v1/ with your browser to test.
 7. Your back-end server is now running. You can now run the front-end app.
 
-### Create a MongoDB Account
+### Setting up a MongoDB Account
 
 1. Go to browser and navigate to https://www.mongodb.com/cloud/atlas/register
 2. Open https://www.mongodb.com/basics/mongodb-atlas-tutorial as a reference how to set up the account
@@ -26,10 +26,18 @@ in-case you need assistance from your mentors.
 4. Once database already created, connect the database to the application by clicking database and choose connect tab
 5. Choose connect your application and copy the url that available there
 6. Create a .env file on the root directory
-7. Write MONGO_URI= then paste the url on the same line. Details of .env file available on .env.example file.
+7. Write MONGO_URI= then paste the url on the same line. Details of .env file available on .env.example file
 8. Change <password> on that url to database password
 9. Add database name by input name after slash symbol(/) on that url
 10. Restart the app and now your application already connected to the database
+
+### Setting up a Geoapify Account
+
+1. Go to browser and navigate to https://myprojects.geoapify.com/register
+2. Input your email and password then click register and you will be redirected to https://myprojects.geoapify.com/projects
+3. Click create a project, and input your project name then you will be redirected to a new page
+4. Copy the API Key and paste it to the .env file, you can see the example on .env.example file for your reference
+5. Save your .env file and you're now authorized to access the API from geoapify.com
 
 #### Running the back-end server in Visual Studio Code
 

@@ -7,8 +7,6 @@ const cors = require('cors')
 const favicon = require('express-favicon')
 const logger = require('morgan')
 
-const userRouter = require('./routes/user')
-
 //authentication middleware
 const authenticateUser = require('../middleware/authentication')
 
@@ -17,8 +15,10 @@ const notFoundMiddleware = require('../middleware/not-found')
 const errorHandlerMiddleware = require('../middleware/error-handler')
 
 // calling db connection
+const userRouter = require('./routes/user')
 const mainRouter = require('./routes/mainRouter.js')
 const allBooksRouter = require('./routes/allBooksRouter.js')
+const addressRouter = require('./routes/userAddress')
 
 // middleware
 app.use(cors())
@@ -32,6 +32,7 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1', mainRouter)
 app.use('/api/v1/books', allBooksRouter)
+app.use('/api/v1/address', addressRouter)
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
