@@ -17,7 +17,6 @@ const getAddressCoordinate = async (req, res) => {
             container.longitude = x.properties.lon
             return container
         })
-        console.log(mappedData)
         res.status(StatusCodes.OK).json(mappedData)
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
@@ -39,10 +38,8 @@ const getAddressAutocomplete = async (req, res) => {
             container.longitude = x.properties.lon
             return container
         })
-
         res.status(StatusCodes.OK).json(mappedData)
     } catch (err) {
-        console.log(err)
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
 }
