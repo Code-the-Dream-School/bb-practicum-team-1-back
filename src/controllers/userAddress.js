@@ -17,7 +17,7 @@ const getAddressCoordinate = async (req, res) => {
             container.longitude = x.properties.lon
             return container
         })
-        res.status(StatusCodes.OK).json(mappedData)
+        res.status(StatusCodes.OK).json(mappedData[0])
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
