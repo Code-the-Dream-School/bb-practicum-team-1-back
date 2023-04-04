@@ -156,7 +156,7 @@ const deleteBook = async (req, res) => {
 
     await book.deleteOne({})
 
-    res.status(StatusCodes.OK).json({ msg: 'Book successfully delted.' })
+    res.status(StatusCodes.OK).json({ msg: 'Book successfully deleted.' })
 }
 
 //update book info
