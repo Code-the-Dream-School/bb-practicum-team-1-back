@@ -6,8 +6,8 @@ const addressToCoordinate = require('../util/addressToCoordinate')
 const signUp = async (req, res) => {
     const user = await User.create({ ...req.body })
     const token = user.createJWT()
-    const address = user.address
-    const addToCoordinate = await addressToCoordinate(address)
+    const userAddress = user.address
+    const address = await addressToCoordinate(userAddress)
     res.status(StatusCodes.CREATED).json({
         user: {
             email: user.email,
@@ -15,9 +15,8 @@ const signUp = async (req, res) => {
             givenName: user.givenName,
             familyName: user.familyName,
             dateOfBirth: user.dateOfBirth,
-            address: user.address,
         },
-        addToCoordinate,
+        address,
         token,
     })
 }
