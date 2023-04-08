@@ -16,8 +16,6 @@ const signUp = async (req, res) => {
             familyName: user.familyName,
             dateOfBirth: user.dateOfBirth,
             address: user.address,
-            latitude: user.latitude,
-            longitude: user.longitude,
         },
         addToCoordinate,
         token,
