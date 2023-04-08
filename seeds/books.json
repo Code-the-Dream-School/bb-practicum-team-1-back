@@ -143,7 +143,141 @@
         "author": "Sally Rooney",
         "imageURL": "/api/v1/books/image/641b35d0ca71d42c4252e2b3"
     },
-
+    {
+        "_id": "641cebdc59bab455414b6fb7",
+        "title": "The Alchemist",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 1988,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "The Alchemist (Portuguese: O Alquimista) is a novel by Brazilian author Paulo Coelho which was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller.",
+        "genre": "Fantasy",
+        "author": "Paulo Coelho"
+    },
+    {
+        "_id": "641bdfde59bab467414b6ca0",
+        "title": "Aleph",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2011,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "Aleph is a 2011 novel by the Brazilian writer Paulo Coelho. An autobiographical account, it is his fourteenth major book, and touches on the theme of spirituality. Aleph was written in Coelho's native language, Portuguese.",
+        "genre": "Fantasy",
+        "author": "Paulo Coelho"      
+    },
+    {
+        "_id": "641bdfde59bcb467414b6cb3",
+        "title": "Ikigai",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2017,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "The people of Japan believe that everyone has an ikigai – a reason to jump out of bed each morning. And according to the residents of the Japanese island of Okinawa – the world’s longest-living people – finding it is the key to a longer and more fulfilled life.",
+        "genre": "Personal Growth",
+        "author": "Hector Garcia"
+    },
+    {
+        "_id": "641cebac95bab455414b6fd4",
+        "title": "Pride and Prejudice",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2000,
+        "owner": {
+            "_id": "641ba404692aeccd4ad96865",
+            "username": "ronW"
+        },
+        "status": "open",
+        "description": "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language.",
+        "genre": "Romance",
+        "author": "Jane Austen"
+    },
+    {
+        "_id": "641bdfde59bab467414b9ac2",
+        "title": "Emma",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2003,
+        "owner": {
+            "_id": "641ba404692aeccd4ad96865",
+            "username": "ronW"
+        },
+        "status": "open",
+        "description": "Emma Woodhouse is one of Austen's most captivating and vivid characters. Beautiful, spoilt, vain and irrepressibly witty, Emma organizes the lives of the inhabitants of her sleepy little village and plays matchmaker with devastating effect.",
+        "genre": "Romance",
+        "author": "Jane Austen"      
+    },
+    {
+        "_id": "641abfdc85bcb455414b6da7",
+        "title": "Mansfield Park",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2017,
+        "owner": {
+            "_id": "641ba404692aeccd4ad96865",
+            "username": "ronW"
+        },
+        "status": "open",
+        "description": "Mansfield Park is the third published novel by Jane Austen, first published in 1814 by Thomas Egerton. A second edition was published in 1816 by John Murray, still within Austen's lifetime. The novel did not receive any public reviews until 1821.",
+        "genre": "Romance",
+        "author": "Jane Austen"
+    },
+    {
+        "_id": "641dfbac68bcb455414d9ad8",
+        "title": "Diary of a Wimpy Kid",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 2007,
+        "owner": {
+            "_id": "641bc406592aeccd4ad96856",
+            "username": "ginnyS"
+        },
+        "status": "open",
+        "description": "Diary of a Wimpy Kid is an American children's book series and media franchise created by author and cartoonist Jeff Kinney.[1][2] The series follows Greg Heffley, a middle-schooler who illustrates his daily life in a diary (although he constantly tells the audience that it is a journal).",
+        "genre": "Graphic Novel",
+        "author": "Jeff Kinney"
+    },
+    {
+        "_id": "641cebdc87bdb425414b6fc6",
+        "title": "My Neighbor Totoro",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1988,
+        "owner": {
+            "_id": "641bc406592aeccd4ad96856",
+            "username": "ginnyS"
+        },
+        "status": "open",
+        "description": "The beloved animation classic by legendary Studio Ghibli director Hayao Miyazaki, My Neighbor Totoro is now retold in novel form.",
+        "genre": "Fantasy",
+        "author": "Hayao Miyazaki"
+    },
+    {
+        "_id": "641bbcde82bab467424b9ba6",
+        "title": "When Marnie Was There",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 2003,
+        "owner": {
+            "_id": "641bc406592aeccd4ad96856",
+            "username": "ginnyS"
+        },
+        "status": "open",
+        "description": "When Marnie Was There is a novel by British author Joan G. Robinson, first published in 1967 by Collins. The story follows Anna, a young girl who temporarily moves to Norfolk to heal after becoming ill. There she meets a mysterious and headstrong girl named Marnie who lives in a house overlooking the marshes. They develop a secretive relationship they come to cherish.",
+        "genre": "Fantasy",
+        "author": "Joan G. Robinson"      
+    },
     {
         "_id": "641cccdc59bab455414b6cd5",
         "title": "The Fault in Our Stars",
@@ -158,5 +292,95 @@
         "description": "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012. The title is inspired by Act 1, Scene 2 of Shakespeare's play Julius Caesar, in which the nobleman Cassius says to Brutus: Men at some time were masters of their fates, / The fault, dear Brutus, is not in our stars, / But in ourselves, that we are underlings.The story is narrated by Hazel Grace Lancaster, a 16-year-old girl with thyroid cancer that has affected her lungs. Hazel is forced by her parents to attend a support group where she subsequently meets and falls in love with 17-year-old Augustus Waters, an ex-basketball player, amputee, and survivor of osteosarcoma.",
         "genre": "Romance",
         "author": "John Green"
+    },
+    {
+        "_id": "641bdfdc59bab455414b6cd9",
+        "title": "The Davinci Code",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2003,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons.",
+        "genre": "Mystery",
+        "author": "Dan Brown"      
+    },
+    {
+        "_id": "641cccdc68bcb455414b6cb3",
+        "title": "Angels and Demons",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2000,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "Angels & Demons is a 2000 bestselling mystery-thriller novel written by American author Dan Brown and published by Pocket Books and then by Corgi Books. The novel introduces the character Robert Langdon, who recurs as the protagonist of Brown's subsequent novels.",
+        "genre": "Mystery",
+        "author": "Dan Brown"
+    },
+    {
+        "_id": "641cebab87bdb425314b6ff7",
+        "title": "Memoirs of a Geisha",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 1987,
+        "owner": {
+            "_id": "641cc0a509842e20b0bb987f",
+            "username": "sammy00"
+        },
+        "status": "open",
+        "description": "Memoirs of a Geisha is a historical fiction novel by American author Arthur Golden, published in 1997. The novel, told in first person perspective, tells the story of Nitta Sayuri and the many trials she faces on the path to becoming and working as a geisha in Kyoto, Japan, before, during and after World War II.",
+        "genre": "Historical Fiction",
+        "author": "Arthur Golden"
+    },
+    {
+        "_id": "642269aef562cad511ed0a73",
+        "title": "Pachinko",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2017,
+        "owner": {
+            "_id": "641cc0a509842e20b0bb987f",
+            "username": "sammy00"
+        },
+        "status": "open",
+        "description": "Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.",
+        "genre": "Historical Fiction",
+        "author": "Min Jin Lee"     
+    },
+    {
+        "_id": "641aebcb87bdb4825314b6b4",
+        "title": "Gone Girl",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2012,
+        "owner": {
+            "_id": "642de404692aeccd4ad96542",
+            "username": "MaggieH"
+        },
+        "status": "open",
+        "description": "Gone Girl is a 2012 crime thriller novel by American writer Gillian Flynn. It was published by Crown Publishing Group in June 2012. The novel was popular and made the New York Times Best Seller list. The sense of suspense in the novel comes from whether Nick Dunne is responsible for the disappearance of his wife Amy.",
+        "genre": "Thriller",
+        "author": "Gillian Flynn"
+    },
+    {
+        "_id": "642269abf562cad511ed0b37",
+        "title": "The Woman in the Window",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2018,
+        "owner": {
+            "_id": "642de404692aeccd4ad96542",
+            "username": "MaggieH"
+        },
+        "status": "open",
+        "description": "The Woman in the Window is a thriller novel by American author AJ Finn, published by William Morrow on January 2, 2018. The novel has been translated into more than 40 languages, and has sold millions of copies worldwide.",
+        "genre": "Thriller",
+        "author": "AJ Finn"     
     }
 ]
