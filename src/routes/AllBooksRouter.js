@@ -6,6 +6,7 @@ const upload = multer({ storage: storage, limit: { fileSize: 16777216 } })
 const authenticateUser = require('../../middleware/authentication')
 
 const {
+    getBooksUserId,
     getSingleBook,
     getAllBooks,
     getAllBooksUser,
@@ -22,6 +23,7 @@ router
 router.route('/').post(authenticateUser, upload.single('image'), createBook)
 router.route('/image/:id').get(getImage)
 
+router.route('/:id').get(getBooksUserId)
 router.route('/:id').get(getSingleBook)
 router.route('/').get(getAllBooks)
 module.exports = router
