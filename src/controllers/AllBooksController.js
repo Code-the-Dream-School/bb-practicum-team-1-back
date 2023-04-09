@@ -25,7 +25,7 @@ const getBooksUserId = async (req, res) =>{
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/book/image/${x.id}`
+            y.imageURL = `/api/v1/books/image/${x.id}`
         }
         return y
     })
@@ -51,7 +51,7 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `/api/v1/book/image/${bookId}`
+    y.imageURL = `/api/v1/books/image/${bookId}`
     res.status(StatusCodes.OK).json(y)
 }
 
@@ -135,7 +135,7 @@ const getAllBooksUser = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/book/image/${x.id}`
+            y.imageURL = `/api/v1/books/image/${x.id}`
         }
         return y
     })
