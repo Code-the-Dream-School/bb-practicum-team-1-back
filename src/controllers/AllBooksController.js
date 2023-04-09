@@ -11,7 +11,7 @@ const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
 
 const getBooksUserId = async (req, res) =>{
     const {
-        params: { id: userId }
+        params: { userId: userId }
       } = req
     
       const books = await Book.find({
