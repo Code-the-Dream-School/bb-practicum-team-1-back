@@ -41,11 +41,13 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         min: -90,
         max: 90,
+        required: [true],
     },
     longitude: {
         type: Number,
         min: -180,
         max: 180,
+        required: [true],
     },
     role: {
         type: String,
