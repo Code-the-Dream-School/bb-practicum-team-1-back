@@ -13,6 +13,18 @@
         "longitude": -73.6398912
     },
     {
+        "_id": "641cd404692aeccd4ad96873",
+        "email": "zoeyrhy@gmail.com",
+        "password": "secret345",
+        "username": "zoeyRhy",
+        "givenName": "zoey",
+        "familyName": "rhymes",
+        "dateOfBirth": "12-16-1999",
+        "address": "4171 9th Ave, New York, NY 10034, United States",
+        "latitude": 40.874218,
+        "longitude": -73.911714
+    },
+    {
         "_id": "641a9ac03cf5c88e0ce54c35",
         "email": "John@gmail.com",
         "password": "secret1234",
@@ -40,6 +52,32 @@
         "longitude": -77.50425
     },
     {
+        "_id": "641ba404692aeccd4ad96865",
+        "email": "ron@gmail.com",
+        "password": "secret1234",
+        "username": "ronW",
+        "givenName": "Ron",
+        "familyName": "Weasley",
+        "dateOfBirth": "10-13-1990",
+        "role": "user",
+        "address": "4810 Jaymont Dr, Richmond, VA 23237, United States",
+        "latitude": 37.383581, 
+        "longitude": -77.462192
+    },
+    {
+        "_id": "641bc406592aeccd4ad96856",
+        "email": "ginny@gmail.com",
+        "password": "secret1234",
+        "username": "ginnyS",
+        "givenName": "Ginny",
+        "familyName": "Sandoval",
+        "dateOfBirth": "11-01-1994",
+        "role": "user",
+        "address": "7229 Forest Ave, Richmond, VA 23226, United States",
+        "latitude": 37.605243, 
+        "longitude": -77.529987
+    },
+    {
         "_id": "6414b320fed4b0cf8e8912d0",
         "email": "ellie123@gmail.com",
         "password": "secret123",
@@ -47,32 +85,32 @@
         "givenName": "ellie",
         "familyName": "Smith",
         "dateOfBirth": "01-10-1983",
-        "address": "240 Oak Hill Drive, Liberty Hill, Texas 78642",
-        "latitude": 30,
-        "longitude": -98
+        "address": "11807 Red Hummingbird Dr, Houston, TX 77047, United States",
+        "latitude": 29.625142,
+        "longitude": -95.405627
     },
     {
         "_id": "641cc0a509842e20b0bb987f",
         "email": "sam123@gmail.com",
-        "password": "secret234",
+        "password": "secret123",
         "username": "sammy00",
         "givenName": "sam",
         "familyName": "lee",
         "dateOfBirth": "06-01-1992",
-        "address": "1210 Chambers Rd, Columbus, Ohio 43212",
-        "latitude": 40,
-        "longitude": -83
+        "address": "10553 Homestead Rd, Houston, TX 77016, United States",
+        "latitude": 29.866468,
+        "longitude":  -95.302518
     },
     {
-        "_id": "641cd404692aeccd4ad96873",
-        "email": "zoeyrhy@gmail.com",
-        "password": "secret345",
-        "username": "zoeyRhy",
-        "givenName": "zoey",
-        "familyName": "rhymes",
-        "dateOfBirth": "12-16-1999",
-        "address": "270 Delaware Ave,Buffalo, New York 14202",
-        "latitude": 43,
-        "longitude": -79
+        "_id": "642de404692aeccd4ad96542",
+        "email": "maggie@gmail.com",
+        "password": "secret123",
+        "username": "MaggieH",
+        "givenName": "Maggie",
+        "familyName": "Huang",
+        "dateOfBirth": "01-20-1992",
+        "address": "2620 Briar Ridge Dr, Houston, TX 77057, United States",
+        "latitude": 29.743710, 
+        "longitude": -95.493810
     }
 ]
