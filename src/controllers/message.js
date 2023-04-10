@@ -17,4 +17,26 @@ const createMessage = async (req, res) => {
     res.status(StatusCodes.CREATED).json({ message })
 }
 
-module.exports = { createMessage }
+//Get all messages
+const getAllMessages = async (req, res) => {
+    const { userId } = req.user
+    const messages = await Message.find()
+
+    const groupedMessages = messages.reduce((acc, curr) => {
+        const postedByUser = curr.postedByUser
+        const receivedByUser = curr.receivedByUser
+        const otherUser =
+            userId === postedByUser ? receivedByUser : postedByUser
+
+        if (otherUser in acc) {
+            acc[otherUser].push(curr)
+        } else {
+            acc[otherUser] = [curr]
+        }
+
+        return acc
+    }, {})
+
+    res.status(StatusCodes.OK).json(groupedMessages)
+}
+module.exports = { createMessage, getAllMessages }
