@@ -7,16 +7,15 @@ const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
 
 // get books by userId
 
-const getBooksUserId = async (req, res) =>{
+const getBooksUserId = async (req, res) => {
     const {
-        params: { userId: userId }
-      } = req
-    
-      const books = await Book.find({
+        params: { userId: userId },
+    } = req
+
+    const books = await Book.find({
         owner: userId,
-       
-      }).populate('owner', 'username')
-    if(!books){
+    }).populate('owner', 'username')
+    if (!books) {
         throw new NotFoundError(`No books found with this user id ${userId}`)
     }
     const bookMapped = books.map((x) => {
@@ -32,7 +31,6 @@ const getBooksUserId = async (req, res) =>{
         books: bookMapped,
         count: bookMapped.length,
     })
-    
 }
 
 //get single book
