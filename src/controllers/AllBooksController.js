@@ -7,6 +7,36 @@ const { count } = require('console')
 const collect = require('collect.js')
 const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
 
+// get books by userId
+
+const getBooksUserId = async (req, res) =>{
+    const {
+        params: { userId: userId }
+      } = req
+    
+      const books = await Book.find({
+        owner: userId,
+       
+      }).populate('owner', 'username')
+    if(!books){
+        throw new NotFoundError(`No books found with this user id ${userId}`)
+    }
+    const bookMapped = books.map((x) => {
+        var y = JSON.parse(JSON.stringify(x))
+        if (y.image && y.image.buffer) {
+            delete y.image
+            y.imageURL = `/api/v1/books/image/${x.id}`
+        }
+        return y
+    })
+
+    res.status(StatusCodes.OK).json({
+        books: bookMapped,
+        count: bookMapped.length,
+    })
+    
+}
+
 //get single book
 
 const getSingleBook = async (req, res) => {
@@ -21,7 +51,7 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `/api/v1/book/image/${bookId}`
+    y.imageURL = `/api/v1/books/image/${bookId}`
     res.status(StatusCodes.OK).json(y)
 }
 
@@ -105,7 +135,7 @@ const getAllBooksUser = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/book/image/${x.id}`
+            y.imageURL = `/api/v1/books/image/${x.id}`
         }
         return y
     })
@@ -199,6 +229,7 @@ const getImage = async (req, res) => {
 }
 
 module.exports = {
+    getBooksUserId,
     getSingleBook,
     getImage,
     getAllBooks,
