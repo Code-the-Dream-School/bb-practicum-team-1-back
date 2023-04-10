@@ -8,10 +8,10 @@ const Message = require('../../models/Message')
 //Create message
 const createMessage = async (req, res) => {
     const { userId } = req.user
-    const { recievedByUser, messageContent } = req.body
+    const { receivedByUser, messageContent } = req.body
     const message = await Message.create({
         postedByUser: userId,
-        recievedByUser,
+        receivedByUser,
         messageContent,
     })
     res.status(StatusCodes.CREATED).json({ message })

@@ -10,7 +10,7 @@ const MessageSchema = new mongoose.Schema(
             required: [true],
         },
 
-        recievedByUser: {
+        receivedByUser: {
             type: mongoose.Types.ObjectId,
             ref: 'User',
             required: [true],
@@ -39,11 +39,11 @@ MessageSchema.pre('save', async function (next) {
     const postedByUser = await mongoose
         .model('User')
         .findById(this.postedByUser)
-    const recievedByUser = await mongoose
+    const receivedByUser = await mongoose
         .model('User')
-        .findById(this.recievedByUser)
+        .findById(this.receivedByUser)
 
-    if (!postedByUser || !recievedByUser) {
+    if (!postedByUser || !receivedByUser) {
         throw new NotFoundError('User not found!')
     }
     next()
