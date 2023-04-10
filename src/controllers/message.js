@@ -28,8 +28,7 @@ const getMessageConversation = async (req, res) => {
     } = req
 
     const messages = await Message.find({
-        postedByUser: userId,
-        receivedByUser,
+        receivedByUser: [userId, receivedByUser],
     }).sort(sort)
 
     if (!messages) {
