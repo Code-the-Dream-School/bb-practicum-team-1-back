@@ -3,8 +3,6 @@ const { model, STATES } = require('mongoose')
 const Book = require('../../models/Book')
 const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
-const { count } = require('console')
-const collect = require('collect.js')
 const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
 
 // get books by userId

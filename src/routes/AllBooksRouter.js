@@ -14,7 +14,7 @@ const {
     deleteBook,
     getImage,
     updatebook,
-} = require('../controllers/allBooksController.js')
+} = require('../controllers/AllBooksController.js')
 router.route('/user').get(authenticateUser, getAllBooksUser)
 router
     .route('/:id')
