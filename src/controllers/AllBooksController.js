@@ -66,13 +66,14 @@ const getAllBooks = async (req, res) => {
     if (author) {
         queryObject.author = author
     }
+
     let result = Book.find(queryObject).populate(
         'owner',
         'username latitude longitude'
     )
 
     if (sort) {
-        //sorting our response based on user slection.
+        //sorting our response based on user selection.
         const sortList = sort.split(',').join(' ') //splitting sort options as an array and join them together!
         result = result.sort(sortList)
     } else {

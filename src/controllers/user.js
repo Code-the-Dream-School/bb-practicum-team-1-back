@@ -1,10 +1,21 @@
 const User = require('../../models/User')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthenticatedError } = require('../../errors')
+const addressToCoordinate = require('../util/addressToCoordinate')
 
 const signUp = async (req, res) => {
-    const user = await User.create({ ...req.body })
+    const userAddress = req.body.address
+    const { latitude, longitude, address } = await addressToCoordinate(
+        userAddress
+    )
+    const user = await User.create({
+        ...req.body,
+        latitude,
+        longitude,
+        address,
+    })
     const token = user.createJWT()
+
     res.status(StatusCodes.CREATED).json({
         user: {
             email: user.email,
