@@ -4,7 +4,6 @@ const Book = require('../../models/Book')
 const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const Message = require('../../models/Message')
-const { post } = require('../routes/AllBooksRouter')
 
 //Create message
 const createMessage = async (req, res) => {
@@ -20,8 +19,6 @@ const createMessage = async (req, res) => {
 
 // Get message conversation
 const getMessageConversation = async (req, res) => {
-    const sort = { createdAt: 1 }
-
     const {
         user: { userId },
         params: { messagingPartnerUserId: receivedByUser },
@@ -29,7 +26,7 @@ const getMessageConversation = async (req, res) => {
 
     const messages = await Message.find({
         receivedByUser: [userId, receivedByUser],
-    }).sort(sort)
+    }).sort({ createdAt: 1 })
 
     if (!messages) {
         throw new NotFoundError(
