@@ -23,7 +23,7 @@ const markConversationAsRead = async (req, res) => {
         const { userId } = req.user
         const { postedByUser, messageRead } = req.body
         // update multiple message at the same time
-        const messages = await Message.updateMany(
+        await Message.updateMany(
             {
                 postedByUser,
                 receivedByUser: userId,
