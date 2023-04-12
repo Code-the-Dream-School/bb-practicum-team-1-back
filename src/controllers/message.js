@@ -21,16 +21,23 @@ const createMessage = async (req, res) => {
 const getMessageConversation = async (req, res) => {
     const {
         user: { userId },
-        params: { messagingPartnerUserId: receivedByUser },
+        params: { messagingPartnerUserId: partnerId },
     } = req
 
     const messages = await Message.find({
-        receivedByUser: [userId, receivedByUser],
+        $or: [
+            {
+                $and: [{ postedByUser: userId }, { receivedByUser: partnerId }],
+            },
+            {
+                $and: [{ postedByUser: partnerId }, { receivedByUser: userId }],
+            },
+        ],
     }).sort({ createdAt: 1 })
 
     if (!messages) {
         throw new NotFoundError(
-            `No message found with this recipient ${receivedByUser}`
+            `No message found with this recipient ${partnerId}`
         )
     }
     res.status(StatusCodes.OK).json({ messages })
