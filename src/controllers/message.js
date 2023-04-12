@@ -20,22 +20,28 @@ const createMessage = async (req, res) => {
 //Get all messages
 const getAllMessages = async (req, res) => {
     const { userId } = req.user
-    const messages = await Message.find()
+    const messages = await Message.find({
+        $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
+    }).sort({ createdAt: 1 })
 
     const groupedMessages = messages.reduce((acc, curr) => {
-        const postedByUser = curr.postedByUser
-        const receivedByUser = curr.receivedByUser
+        //here we are checking whether the userId is recipient or sender, otherUser would be the other one!
         const otherUser =
-            userId === postedByUser ? receivedByUser : postedByUser
+            userId === curr.postedByUser.toString()
+                ? curr.receivedByUser.toString()
+                : curr.postedByUser.toString()
 
-        if (otherUser in acc) {
-            acc[otherUser].push(curr)
-        } else {
-            acc[otherUser] = [curr]
+        if (otherUser) {
+            if (otherUser in acc) {
+                //If other user already exist in messages array, it will push the new message to it.
+                acc[otherUser].push(curr)
+            } else {
+                //otherwise it will create new array of messages!
+                acc[otherUser] = [curr]
+            }
         }
-
         return acc
-    }, {})
+    }, {}) //this {}  is the initial value of the accumulator here, which is null.
 
     res.status(StatusCodes.OK).json(groupedMessages)
 }
