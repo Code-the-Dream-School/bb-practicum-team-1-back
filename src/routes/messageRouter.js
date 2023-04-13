@@ -5,6 +5,7 @@ const {
     createMessage,
     getAllMessages,
     getMessageConversation,
+    markConversationAsRead,
 } = require('../controllers/message.js')
 
 router
@@ -15,5 +16,8 @@ router
 router
     .route('/:messagingPartnerUserId')
     .get(authenticateUser, getMessageConversation)
+    
+ router
+      .route('/').patch(authenticateUser, markConversationAsRead)
 
 module.exports = router

@@ -63,4 +63,41 @@ const getMessageConversation = async (req, res) => {
     res.status(StatusCodes.OK).json({ messages })
 }
 
-module.exports = { createMessage, getAllMessages, getMessageConversation }
+// Mark conversation as read
+const markConversationAsRead = async (req, res) => {
+    try {
+        const { userId } = req.user
+        const { partnerId } = req.body
+        // update multiple message at the same time
+        await Message.updateMany(
+            {
+                postedByUser: partnerId,
+                receivedByUser: userId,
+            },
+            {
+                messageRead: true,
+            },
+            { new: true, runValidators: true }
+        )
+        // returning all updated message with new messageRead status
+        const updatedMessages = await Message.find({
+            $or: [
+                { postedByUser: partnerId, receivedByUser: userId },
+                { postedByUser: userId, receivedByUser: partnerId },
+            ],
+        }).sort({ createdAt: 1 })
+
+        return res.status(StatusCodes.OK).json({ updatedMessages })
+    } catch (err) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
+    }
+
+}
+
+module.exports = {
+    createMessage, 
+    getAllMessages, 
+    getMessageConversation,  
+    markConversationAsRead 
+}
+
