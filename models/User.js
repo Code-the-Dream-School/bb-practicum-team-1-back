@@ -39,15 +39,15 @@ const UserSchema = new mongoose.Schema({
     },
     latitude: {
         type: Number,
-        required: [true],
         min: -90,
         max: 90,
+        required: [true],
     },
     longitude: {
         type: Number,
-        required: [true],
         min: -180,
         max: 180,
+        required: [true],
     },
     role: {
         type: String,

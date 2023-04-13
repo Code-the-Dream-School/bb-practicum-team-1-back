@@ -7,7 +7,11 @@ const {
     getMessageConversation,
 } = require('../controllers/message.js')
 
-router.route('/').post(authenticateUser, createMessage)
+router
+    .route('/')
+    .post(authenticateUser, createMessage)
+    .get(authenticateUser, getAllMessages)
+
 router
     .route('/:messagingPartnerUserId')
     .get(authenticateUser, getMessageConversation)
