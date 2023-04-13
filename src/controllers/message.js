@@ -45,4 +45,22 @@ const getAllMessages = async (req, res) => {
 
     res.status(StatusCodes.OK).json(groupedMessages)
 }
-module.exports = { createMessage, getAllMessages }
+
+// Get message conversation
+const getMessageConversation = async (req, res) => {
+    const {
+        user: { userId },
+        params: { messagingPartnerUserId: partnerId },
+    } = req
+
+    const messages = await Message.find({
+        $or: [
+            { postedByUser: partnerId, receivedByUser: userId },
+            { postedByUser: userId, receivedByUser: partnerId },
+        ],
+    }).sort({ createdAt: 1 })
+
+    res.status(StatusCodes.OK).json({ messages })
+}
+
+module.exports = { createMessage, getAllMessages, getMessageConversation }
