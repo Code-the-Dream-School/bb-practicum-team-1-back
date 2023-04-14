@@ -100,13 +100,15 @@ const deleteMessage = async (req, res) => {
         params: { deleteMessageId: messageId },
     } = req
 
-    const message = await Message.findByIdAndDelete({
+    const message = await Message.findOneAndDelete({
         _id: messageId,
-        receivedByUser: userId,
+        postedByUser: userId,
     })
 
     if (!message) {
-        throw new NotFoundError(`No message found with this Id ${messageId}`)
+        throw new NotFoundError(
+            `Not authorize to delete this message with messageId: ${messageId}`
+        )
     }
     res.status(StatusCodes.OK).json({
         msg: `This message with Id: ${messageId} was successfully deleted.`,
