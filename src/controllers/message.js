@@ -5,7 +5,7 @@ const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const Message = require('../../models/Message')
 
-//Create message
+// Create message
 const createMessage = async (req, res) => {
     const { userId } = req.user
     const { receivedByUser, messageContent } = req.body
@@ -17,7 +17,7 @@ const createMessage = async (req, res) => {
     res.status(StatusCodes.CREATED).json({ message })
 }
 
-//Get all messages
+// Get all messages
 const getAllMessages = async (req, res) => {
     const { userId } = req.user
     const messages = await Message.find({
@@ -91,13 +91,32 @@ const markConversationAsRead = async (req, res) => {
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
+}
 
+// Delete single message
+const deleteMessage = async (req, res) => {
+    const {
+        user: { userId },
+        params: { deleteMessageId: messageId },
+    } = req
+
+    const message = await Message.findByIdAndDelete({
+        _id: messageId,
+        receivedByUser: userId,
+    })
+
+    if (!message) {
+        throw new NotFoundError(`No message found with this Id ${messageId}`)
+    }
+    res.status(StatusCodes.OK).json({
+        msg: `This message with Id: ${messageId} was successfully deleted.`,
+    })
 }
 
 module.exports = {
-    createMessage, 
-    getAllMessages, 
-    getMessageConversation,  
-    markConversationAsRead 
+    createMessage,
+    getAllMessages,
+    getMessageConversation,
+    markConversationAsRead,
+    deleteMessage,
 }
-
