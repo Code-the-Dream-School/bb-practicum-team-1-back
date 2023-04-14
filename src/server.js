@@ -1,11 +1,18 @@
 const app = require('./app')
 const connectDB = require('../db/connect')
+const http = require('http')
+const intiatSocket = require('./socket')
 const port = process.env.PORT || 8000
+
+const server = http.createServer(app)
+
+// Initialize Socket.io server
+const io = intiatSocket(server)
 
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI)
-        app.listen(port, () =>
+        server.listen(port, () =>
             console.log(`Server is listening on port ${port}...`)
         )
     } catch (error) {
