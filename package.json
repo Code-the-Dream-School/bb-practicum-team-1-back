@@ -32,7 +32,8 @@
         "morgan": "^1.10.0",
         "multer": "^1.4.5-lts.1",
         "node-fetch": "^2.6.9",
-        "prettier": "^2.8.4"
+        "prettier": "^2.8.4",
+        "socket.io": "^4.6.1"
     },
     "devDependencies": {
         "nodemon": "^2.0.21"
