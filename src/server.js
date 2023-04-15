@@ -1,13 +1,13 @@
 const app = require('./app')
 const connectDB = require('../db/connect')
 const http = require('http')
-const intiatSocket = require('./socket')
+const initiateSocket = require('./socket')
 const port = process.env.PORT || 8000
 
 const server = http.createServer(app)
 
 // Initialize Socket.io server
-const io = intiatSocket(server)
+const io = initiateSocket(server)
 
 const start = async () => {
     try {

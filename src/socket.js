@@ -1,6 +1,6 @@
 const socketio = require('socket.io')
 
-const intiatSocket = (server) => {
+const initiateSocket = (server) => {
     const io = socketio(server) //This line creates a new instance of socket.io and passes in the server parameter, allowing it to listen for WebSocket connections on the same port as the HTTP server.
 
     io.on('connection', (socket) => {
@@ -15,4 +15,4 @@ const intiatSocket = (server) => {
     return io
 }
 
-module.exports = intiatSocket
+module.exports = initiateSocket
