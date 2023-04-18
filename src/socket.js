@@ -7,6 +7,15 @@ const initiateSocket = (server) => {
         //event listener for when a new client connects to the server using a WebSocket.
         console.log('New client connected!')
 
+        socket.on('typing', (data) => {
+            if (data.typing === true) {
+                io.emit('display', data)
+            } else {
+                io.emit('display', data)
+                console.log(data)
+            }
+        })
+
         socket.on('disconnect', () => {
             //event listener for when a client disconnects from the server.
             console.log('User disconnected!')
