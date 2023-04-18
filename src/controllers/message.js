@@ -20,6 +20,7 @@ const createMessage = async (req, res) => {
 // Get all messages
 const getAllMessages = async (req, res) => {
     const { userId } = req.user
+    console.log(userId)
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
     }).sort({ createdAt: 1 })
@@ -115,10 +116,43 @@ const deleteMessage = async (req, res) => {
     })
 }
 
+//getAllPartnerUsers
+
+const listPartnerUsers = async (userId, activeUsers) => {
+    const messages = await Message.find({
+        $or: [{ postedByUser: userId }, { receivedByUser: userId }],
+    })
+
+    const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
+    messages.map((x) => {
+        const postedByUser = x.postedByUser
+        const receivedByUser = x.receivedByUser
+
+        const otherUser =
+            userId === postedByUser.toString()
+                ? receivedByUser.toString()
+                : postedByUser.toString()
+
+        messagePartners.add(otherUser)
+    })
+
+    const partnersArray = Array.from(messagePartners) // convert Set() to array again!
+
+    const partnersWithStatus = partnersArray.map((partner) => {
+        if (activeUsers.includes(partner)) {
+            return { userId: partner, status: 'online' }
+        } else {
+            return { userId: partner, status: 'offline' }
+        }
+    })
+    return partnersWithStatus
+}
+
 module.exports = {
     createMessage,
     getAllMessages,
     getMessageConversation,
     markConversationAsRead,
     deleteMessage,
+    listPartnerUsers,
 }
