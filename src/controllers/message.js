@@ -20,7 +20,6 @@ const createMessage = async (req, res) => {
 // Get all messages
 const getAllMessages = async (req, res) => {
     const { userId } = req.user
-    console.log(userId)
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
     }).sort({ createdAt: 1 })

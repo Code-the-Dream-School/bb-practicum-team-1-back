@@ -18,8 +18,8 @@ const authMiddleware = (socket, next) => {
         socket.user = { userId: payload.userId, username: payload.username }
         next()
     } catch (error) {
-        throw new UnauthenticatedError(
-            'Authentication token missing or invalid'
+        next(
+            new UnauthenticatedError('Authentication token missing or invalid')
         )
     }
 }

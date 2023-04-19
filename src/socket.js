@@ -15,10 +15,8 @@ const initiateSocket = (server) => {
         //ckecks for the username when a client connect!
         const { userId } = socket.user
         activeUsers.push(userId) // Add the user to the activeUsers array
-        console.log('Active users', activeUsers)
         // Get the list of partner users for the authenticated user.
         const partnerUsers = await listPartnerUsers(userId, activeUsers)
-        console.log('partners', partnerUsers)
 
         // Emit the list of partner users to the connected client.
         socket.emit('partnerUsers', partnerUsers)
