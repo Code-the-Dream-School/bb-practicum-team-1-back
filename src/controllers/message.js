@@ -115,6 +115,38 @@ const deleteMessage = async (req, res) => {
     })
 }
 
+//getAllPartnerUsers
+
+const listPartnerUsers = async (userId, activeUsers) => {
+    const messages = await Message.find({
+        $or: [{ postedByUser: userId }, { receivedByUser: userId }],
+    })
+
+    const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
+    messages.map((x) => {
+        const postedByUser = x.postedByUser
+        const receivedByUser = x.receivedByUser
+
+        const otherUser =
+            userId === postedByUser.toString()
+                ? receivedByUser.toString()
+                : postedByUser.toString()
+
+        messagePartners.add(otherUser)
+    })
+
+    const partnersArray = Array.from(messagePartners) // convert Set() to array again!
+
+    const partnersWithStatus = partnersArray.map((partner) => {
+        if (activeUsers.includes(partner)) {
+            return { userId: partner, status: 'online' }
+        } else {
+            return { userId: partner, status: 'offline' }
+        }
+    })
+    return partnersWithStatus
+}
+
 // Get User Typing Status
 const userTypingStatus = async (socket, data) => {
     const { typing } = data
@@ -126,18 +158,13 @@ const userTypingStatus = async (socket, data) => {
             username: username,
             message: 'is typing...',
         })
-
-        console.log(`${username} is typing...`)
     } else {
         // when a user stops typing, server broadcasts a 'typing' event with an empty message to all connected partners
         socket.broadcast.emit('typing', {
             username: username,
             message: '',
         })
-
-        console.log(`${username} stopped typing.`)
     }
-}
 
 module.exports = {
     createMessage,
@@ -145,5 +172,6 @@ module.exports = {
     getMessageConversation,
     markConversationAsRead,
     deleteMessage,
+    listPartnerUsers,
     userTypingStatus,
 }

@@ -7,6 +7,7 @@ const {
     getMessageConversation,
     markConversationAsRead,
     deleteMessage,
+    listPartnerUsers,
 } = require('../controllers/message.js')
 
 router
