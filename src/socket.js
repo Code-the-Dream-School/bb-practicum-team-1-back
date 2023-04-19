@@ -1,6 +1,6 @@
 const socketio = require('socket.io')
 const authMiddleware = require('./../middleware/authenticationSocket')
-const { listPartnerUsers } = require('./controllers/message')
+const { listPartnerUsers, userTypingStatus } = require('./controllers/message')
 const initiateSocket = (server) => {
     const io = socketio(server) //This line creates a new instance of socket.io and passes in the server parameter, allowing it to listen for WebSocket connections on the same port as the HTTP server.
 
@@ -12,7 +12,7 @@ const initiateSocket = (server) => {
         //event listener for when a new client connects to the server using a WebSocket.
         console.log('New client connected!')
 
-        //ckecks for the username when a client connect!
+        //checks for the username when a client connect!
         const { userId } = socket.user
         activeUsers.push(userId) // Add the user to the activeUsers array
         // Get the list of partner users for the authenticated user.
@@ -20,7 +20,12 @@ const initiateSocket = (server) => {
 
         // Emit the list of partner users to the connected client.
         socket.emit('partnerUsers', partnerUsers)
-
+     
+        // Listen for typing event
+        socket.on('typing', (data) => {
+            userTypingStatus(socket, data)
+        })
+        
         socket.on('disconnect', () => {
             //event listener for when a client disconnects from the server.
             console.log('User disconnected!')

@@ -147,6 +147,25 @@ const listPartnerUsers = async (userId, activeUsers) => {
     return partnersWithStatus
 }
 
+// Get User Typing Status
+const userTypingStatus = async (socket, data) => {
+    const { typing } = data
+    const { userId, username } = socket.user
+
+    if (typing) {
+        // when a user starts typing, server broadcasts a 'typing' event to all connected partners
+        socket.broadcast.emit('typing', {
+            username: username,
+            message: 'is typing...',
+        })
+    } else {
+        // when a user stops typing, server broadcasts a 'typing' event with an empty message to all connected partners
+        socket.broadcast.emit('typing', {
+            username: username,
+            message: '',
+        })
+    }
+
 module.exports = {
     createMessage,
     getAllMessages,
@@ -154,4 +173,5 @@ module.exports = {
     markConversationAsRead,
     deleteMessage,
     listPartnerUsers,
+    userTypingStatus,
 }
