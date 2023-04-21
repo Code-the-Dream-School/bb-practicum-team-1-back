@@ -165,7 +165,7 @@ const userTypingStatus = async (socket, data) => {
             message: '',
         })
     }
-
+}
 module.exports = {
     createMessage,
     getAllMessages,
