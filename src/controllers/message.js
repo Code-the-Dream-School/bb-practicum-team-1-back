@@ -16,11 +16,16 @@ const createMessage = async (
         receivedByUser,
         messageContent,
     })
+
+    //activeUsers[receivedByUser] will give us the socket connection object associated with that user.
+    //?.socketId => optional chaining to get the socketId from socket connection object
     const recipientSocketId = activeUsers[receivedByUser]?.socketId
     if (recipientSocketId) {
+        //ensure that message is sent to user with specific userId
         io.to(recipientSocketId).emit('newMessage', { message })
     }
 
+    //When the sender sends the message, show the message for themselves right away.
     socket.emit('newMessage', { message })
 }
 
