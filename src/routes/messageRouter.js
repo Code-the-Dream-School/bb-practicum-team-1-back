@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const authenticateUser = require('../../middleware/authentication')
 const {
-    createMessage,
+    createMessageHTTP,
     getAllMessages,
     getMessageConversation,
     markConversationAsRead,
@@ -12,7 +12,7 @@ const {
 
 router
     .route('/')
-    .post(authenticateUser, createMessage)
+    .post(authenticateUser, createMessageHTTP)
     .get(authenticateUser, getAllMessages)
 
 router

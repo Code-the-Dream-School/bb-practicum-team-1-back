@@ -11,6 +11,7 @@ const createMessage = async (
     activeUsers,
     { receivedByUser, messageContent }
 ) => {
+    console.log(socket, activeUsers, receivedByUser, messageContent)
     const message = await Message.create({
         postedByUser: socket.user.userId,
         receivedByUser,
@@ -27,6 +28,19 @@ const createMessage = async (
 
     //When the sender sends the message, show the message for themselves right away.
     socket.emit('newMessage', { message })
+}
+
+const createMessageHTTP = async (req, res) => {
+    const { userId } = req.user
+    console.log('sockets', req.io.sockets);
+    req.io.emit('testEvent', {data: 'value'})
+    const { receivedByUser, messageContent } = req.body
+    const message = await Message.create({
+        postedByUser: userId,
+        receivedByUser,
+        messageContent,
+    })
+    res.status(StatusCodes.CREATED).json({ message })
 }
 
 // Get all messages
@@ -186,4 +200,5 @@ module.exports = {
     deleteMessage,
     listPartnerUsers,
     userTypingStatus,
+    createMessageHTTP,
 }
