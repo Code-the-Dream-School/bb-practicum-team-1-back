@@ -6,15 +6,22 @@ const { BadRequestError, NotFoundError } = require('../../errors')
 const Message = require('../../models/Message')
 
 // Create message
-const createMessage = async (req, res) => {
-    const { userId } = req.user
-    const { receivedByUser, messageContent } = req.body
+const createMessage = async (
+    socket,
+    activeUsers,
+    { receivedByUser, messageContent }
+) => {
     const message = await Message.create({
-        postedByUser: userId,
+        postedByUser: socket.user.userId,
         receivedByUser,
         messageContent,
     })
-    res.status(StatusCodes.CREATED).json({ message })
+    const recipientSocketId = activeUsers[receivedByUser]?.socketId
+    if (recipientSocketId) {
+        io.to(recipientSocketId).emit('newMessage', { message })
+    }
+
+    socket.emit('newMessage', { message })
 }
 
 // Get all messages
@@ -165,7 +172,7 @@ const userTypingStatus = async (socket, data) => {
             message: '',
         })
     }
-
+}
 module.exports = {
     createMessage,
     getAllMessages,
