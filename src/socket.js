@@ -5,7 +5,6 @@ const {
     userTypingStatus,
     createMessage,
 } = require('./controllers/message')
-const { default: mongoose } = require('mongoose')
 
 const initiateSocket = (server) => {
     const io = socketio(server)
@@ -36,33 +35,6 @@ const initiateSocket = (server) => {
             userTypingStatus(socket, data)
         })
 
-        //Hundling message creation
-        socket.on('createMessage', async (data) => {
-            const { to, messageContent } = data
-
-            //returning Id as an objectId
-            const ObjectId = mongoose.Types.ObjectId
-
-            // finding socket.id based on userId
-            const recipientSocket = Object.values(activeUsers).find(
-                (userSocket) => userSocket.user.userId === to
-            )
-            //creating the message
-            if (recipientSocket) {
-                const messageToCreate = await createMessage(
-                    socket,
-                    activeUsers,
-                    {
-                        receivedByUser: new ObjectId(to),
-                        messageContent,
-                    }
-                )
-
-                recipientSocket.emit('newMessage', messageToCreate)
-            } else {
-                console.log(`User ${to} is not connected`)
-            }
-        })
         socket.on('disconnect', () => {
             console.log('User disconnected!')
             delete activeUsers[userId] // Remove the user from the activeUsers object

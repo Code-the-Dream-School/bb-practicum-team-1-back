@@ -5,28 +5,49 @@ const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const Message = require('../../models/Message')
 
-// Create message
-const createMessage = async (
-    socket,
-    activeUsers,
-    { receivedByUser, messageContent }
-) => {
+// // Create message
+// const createMessage = async (
+//     socket,
+//     activeUsers,
+//     { receivedByUser, messageContent }
+// ) => {
+//     const message = await Message.create({
+//         postedByUser: socket.user.userId,
+//         receivedByUser,
+//         messageContent,
+//     })
+
+//     //activeUsers[receivedByUser] will give us the socket connection object associated with that user.
+//     //?.socketId => optional chaining to get the socketId from socket connection object
+//     const recipientSocketId = activeUsers[receivedByUser]?.socketId
+//     if (recipientSocketId) {
+//         //ensure that message is sent to user with specific userId
+//         io.to(recipientSocketId).emit('newMessage', { message })
+//     }
+
+//     //When the sender sends the message, show the message for themselves right away.
+//     socket.emit('newMessage', { message })
+// }
+
+const createMessage = async (req, res) => {
+    const { userId } = req.user
+    const { receivedByUser, messageContent } = req.body
     const message = await Message.create({
-        postedByUser: socket.user.userId,
+        postedByUser: userId,
         receivedByUser,
         messageContent,
     })
 
-    //activeUsers[receivedByUser] will give us the socket connection object associated with that user.
-    //?.socketId => optional chaining to get the socketId from socket connection object
-    const recipientSocketId = activeUsers[receivedByUser]?.socketId
+    // const activeUsers = getActiveUsers()
+    console.log('req', req.io)
+
+    const recipientSocketId = req.io.getActiveUsers()[receivedByUser]?.socketId
+    console.log('hello', recipientSocketId)
     if (recipientSocketId) {
         //ensure that message is sent to user with specific userId
-        io.to(recipientSocketId).emit('newMessage', { message })
+        req.io.to(recipientSocketId).emit('newMessage', { message })
     }
-
-    //When the sender sends the message, show the message for themselves right away.
-    socket.emit('newMessage', { message })
+    res.status(StatusCodes.CREATED).json({ message })
 }
 
 // Get all messages
