@@ -13,10 +13,11 @@ const errorHandlerMiddleware = require('../middleware/error-handler')
 
 const port = process.env.PORT || 8000
 const server = http.createServer(app)
-const { io, activeUsers } = initiateSocket(server)
+const { io, getActiveUsers } = initiateSocket(server)
 
 app.use((req, res, next) => {
     req.io = io
+    req.getActiveUsers = getActiveUsers
     return next()
 })
 

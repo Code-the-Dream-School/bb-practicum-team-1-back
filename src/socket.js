@@ -1,10 +1,6 @@
 const socketio = require('socket.io')
 const authMiddleware = require('./../middleware/authenticationSocket')
-const {
-    listPartnerUsers,
-    userTypingStatus,
-    createMessage,
-} = require('./controllers/message')
+const { listPartnerUsers, userTypingStatus } = require('./controllers/message')
 
 const initiateSocket = (server) => {
     const io = socketio(server)
@@ -42,7 +38,7 @@ const initiateSocket = (server) => {
     })
 
     const getActiveUsers = () => {
-        return Object.keys(activeUsers)
+        return activeUsers
     }
 
     return { io, getActiveUsers }
