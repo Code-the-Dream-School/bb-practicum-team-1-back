@@ -5,6 +5,9 @@ const addressToCoordinate = require('../util/addressToCoordinate')
 
 const signUp = async (req, res) => {
     const userAddress = req.body.address
+    if (!userAddress) {
+        throw new BadRequestError('Please provide address.')
+    }
     const { latitude, longitude, address } = await addressToCoordinate(
         userAddress
     )
