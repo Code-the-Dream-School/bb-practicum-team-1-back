@@ -149,13 +149,20 @@ const createBook = async (req, res) => {
     const { userId, username } = req.user
 
     req.body.owner = userId
-
     if (req.file) {
         req.body.image = {
             buffer: req.file.buffer,
             contentType: req.file.mimetype,
         }
     }
+    // let image = null
+    // if (req.body.image instanceof Buffer) {
+    //     const contentType = req.body.image || 'image/jpeg' // use image/jpeg as default content type
+    //     image = {
+    //         data: req.body.image,
+    //         contentType: contentType,
+    //     }
+    // }
     const book = await Book.create(req.body)
     res.status(StatusCodes.CREATED).json({ username: username, book })
 }
