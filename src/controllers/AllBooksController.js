@@ -228,6 +228,12 @@ const updatebook = async (req, res) => {
 //getImage
 const getImage = async (req, res) => {
     const book = await Book.findById(req.params.id)
+    if (!book || !book.image) {
+        console.log('Error: Image not found')
+        return res
+            .status(StatusCodes.NOT_FOUND)
+            .json({ msg: 'Image not found' })
+    }
     res.set('content-Type', book.image.contentType)
     res.status(StatusCodes.OK).send(book.image.buffer)
 }
