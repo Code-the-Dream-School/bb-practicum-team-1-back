@@ -22,7 +22,7 @@ const getBooksUserId = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/books/image/${x.id}`
+            y.imageURL = `/books/image/${x.id}`
         }
         return y
     })
@@ -47,7 +47,7 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `/api/v1/books/image/${bookId}`
+    y.imageURL = `/books/image/${bookId}`
     res.status(StatusCodes.OK).json(y)
 }
 
@@ -101,7 +101,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `/api/v1/books/image/${x.id}`
+                y.imageURL = `/books/image/${x.id}`
             }
             return y
         })
@@ -110,7 +110,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `/api/v1/books/image/${x.id}`
+                y.imageURL = `/books/image/${x.id}`
             }
             return y
         })
@@ -132,7 +132,7 @@ const getAllBooksUser = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/books/image/${x.id}`
+            y.imageURL = `/books/image/${x.id}`
         }
         return y
     })
@@ -155,16 +155,18 @@ const createBook = async (req, res) => {
             contentType: req.file.mimetype,
         }
     }
-    // let image = null
-    // if (req.body.image instanceof Buffer) {
-    //     const contentType = req.body.image || 'image/jpeg' // use image/jpeg as default content type
-    //     image = {
-    //         data: req.body.image,
-    //         contentType: contentType,
-    //     }
-    // }
     const book = await Book.create(req.body)
-    res.status(StatusCodes.CREATED).json({ username: username, book })
+    const booksArray = [book] // create array with returned book object
+    const bookImage = booksArray.map((x) => {
+        var y = JSON.parse(JSON.stringify(x))
+        if (y.image && y.image.buffer) {
+            delete y.image
+            y.imageURL = `/books/image/${x.id}`
+        }
+        return y
+    })
+    console.log(bookImage)
+    res.status(StatusCodes.CREATED).json({ username: username, bookImage })
 }
 
 //delete book
@@ -222,7 +224,17 @@ const updatebook = async (req, res) => {
     if (userId !== owner) {
         throw new BadRequestError('you should be the owner')
     }
-    res.status(StatusCodes.OK).json({ book })
+    const booksArray = [book]
+    const bookImage = booksArray.map((x) => {
+        var y = JSON.parse(JSON.stringify(x))
+        if (y.image && y.image.buffer) {
+            delete y.image
+            y.imageURL = `/books/image/${x.id}`
+        }
+        return y
+    })
+    console.log(bookImage)
+    res.status(StatusCodes.OK).json({ bookImage })
 }
 
 //getImage
