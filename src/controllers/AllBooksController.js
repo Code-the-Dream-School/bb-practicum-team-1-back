@@ -204,16 +204,17 @@ const updatebook = async (req, res) => {
         params: { id: bookId },
     } = req
 
+    let updateFields = { ...req.body } // create updateFields obj that will include all fields that need to be updated
     if (req.file) {
-        req.body.image = {
+        updateFields.image = {
             buffer: req.file.buffer,
             contentType: req.file.mimetype,
         }
     }
-
+    console.log(updateFields)
     const book = await Book.findOneAndUpdate(
         { _id: bookId, owner: userId },
-        req.body, //the part which gonna be upadated
+        updateFields, //the part which gonna be upadated
         { new: true, runValidators: true }
     )
     const owner = book.owner.toString()
@@ -233,6 +234,7 @@ const updatebook = async (req, res) => {
         }
         return y
     })
+
     console.log(bookImage)
     res.status(StatusCodes.OK).json({ bookImage })
 }
