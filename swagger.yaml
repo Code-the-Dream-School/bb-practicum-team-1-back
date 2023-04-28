@@ -1,0 +1,577 @@
+openapi: 3.0.0
+info:
+    title: Shelf-Share API
+    contact: {}
+    version: '1.0'
+servers:
+    - url: https://shelf-share.onrender.com/api/v1
+      variables: {}
+paths:
+    /user/sign-up:
+        post:
+            tags:
+                - Auth
+            summary: Sign Up User
+            operationId: SignUpUser
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_SignUpUserRequest'
+                                - example:
+                                      email: sara@gmail.com
+                                      password: secret123
+                                      username: sara
+                                      givenName: Sara
+                                      familyName: Madden
+                                      dateOfBirth: 02-01-1995
+                                      address: 125 Oak
+                        example:
+                            email: sara@gmail.com
+                            password: secret123
+                            username: sara
+                            givenName: Sara
+                            familyName: Madden
+                            dateOfBirth: 02-01-1995
+                            address: 125 Oak
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /user/authentication:
+        post:
+            tags:
+                - Auth
+            summary: Authentication User
+            operationId: AuthenticationUser
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_AuthenticationUserRequest'
+                                - example:
+                                      email: maggie@gmail.com
+                                      password: secret123
+                        example:
+                            email: maggie@gmail.com
+                            password: secret123
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /books:
+        post:
+            tags:
+                - Books
+            summary: Create Book (without image)
+            operationId: CreateBook(withoutimage)
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_CreatebookwithoutimageRequest'
+                                - example:
+                                      title: Pachinko
+                                      language: English
+                                      ageRange: adults
+                                      publishingYear: '2021'
+                                      status: open
+                                      description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                                      genre: Historical Fiction
+                                      author: Min Jin Lee
+                        example:
+                            title: Pachinko
+                            language: English
+                            ageRange: adults
+                            publishingYear: '2021'
+                            status: open
+                            description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                            genre: Historical Fiction
+                            author: Min Jin Lee
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+        get:
+            tags:
+                - Books
+            summary: Get All Books(all users)
+            operationId: GetAllBooks(allusers)
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /books/user:
+        get:
+            tags:
+                - Books
+            summary: Get All Books(all owners)
+            operationId: GetAllBooks(allowners)
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+    /books/{id}:
+        parameters:
+            - in: path
+              name: id
+              schema:
+                  type: string
+              required: true
+              description: The book ID
+        get:
+            tags:
+                - Books
+            summary: Get Single Book
+            operationId: GetSingleBook
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /books/user/{userId}:
+        parameters:
+            - in: path
+              name: userId
+              schema:
+                  type: string
+              required: true
+              description: The user ID
+        get:
+            tags:
+                - Books
+            summary: Get Books By UserId
+            operationId: GetBooksByUserId
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /books/{bookId}:
+        parameters:
+            - in: path
+              name: bookId
+              schema:
+                  type: string
+              required: true
+              description: The book ID
+        delete:
+            tags:
+                - Books
+            summary: Delete Book
+            operationId: DeleteBook
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+        post:
+            tags:
+                - Books
+            summary: Update Book
+            operationId: UpdateBook
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_UpdateBookRequest'
+                                - example:
+                                      title: Pachinko
+                                      language: English
+                                      ageRange: adults
+                                      publishingYear: '2019'
+                                      status: open
+                                      description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                                      genre: Historical Fiction
+                                      author: Min Jin Lee
+                        example:
+                            title: Pachinko
+                            language: English
+                            ageRange: adults
+                            publishingYear: '2019'
+                            status: open
+                            description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                            genre: Historical Fiction
+                            author: Min Jin Lee
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+    /books/image/{bookId}:
+        parameters:
+            - in: path
+              name: bookId
+              schema:
+                  type: string
+              required: true
+              description: The book ID
+        get:
+            tags:
+                - Books
+            summary: Get Book Image
+            operationId: GetBookImage
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /address/autocomplete:
+        get:
+            tags:
+                - Address
+            summary: Get Address Autocomplete
+            operationId: GetAddressAutocomplete
+            parameters:
+                - name: address
+                  in: query
+                  description: ''
+                  required: true
+                  style: form
+                  explode: true
+                  schema:
+                      type: string
+                      example: 270 Delaw
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /address/search:
+        get:
+            tags:
+                - Address
+            summary: PROD_Address Coordinate
+            operationId: PROD_AddressCoordinate
+            parameters:
+                - name: address
+                  in: query
+                  description: ''
+                  required: true
+                  style: form
+                  explode: true
+                  schema:
+                      type: string
+                      example: 2610 Walnut
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security: []
+    /messages:
+        post:
+            tags:
+                - Messages
+            summary: Create Message
+            operationId: CreateMessage
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_CreateMessageRequest'
+                                - example:
+                                      receivedByUser: 642de404692aeccd4ad96542
+                                      messageContent: '456 '
+                        example:
+                            receivedByUser: 642de404692aeccd4ad96542
+                            messageContent: '456 '
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+        get:
+            tags:
+                - Messages
+            summary: Get All Message
+            operationId: GetAllMessage
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+        patch:
+            tags:
+                - Messages
+            summary: Update/Mark Conversation as Read
+            operationId: Update/MarkConversationasRead
+            parameters: []
+            requestBody:
+                description: ''
+                content:
+                    application/json:
+                        schema:
+                            allOf:
+                                - $ref: '#/components/schemas/PROD_UpdateMarkConversationasReadRequest'
+                                - example:
+                                      partnerId: 641a9ac03cf5c88e0ce54c35
+                        example:
+                            partnerId: 641a9ac03cf5c88e0ce54c35
+                required: true
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+    /messages/{messagingPartnerUserId}:
+        parameters:
+            - in: path
+              name: messagingPartnerUserId
+              schema:
+                  type: string
+              required: true
+              description: The partner ID
+        get:
+            tags:
+                - Messages
+            summary: Get Message as Conversation
+            operationId: GetMessageasConversation
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+    /messages/{messageId}:
+        parameters:
+            - in: path
+              name: messageId
+              schema:
+                  type: string
+              required: true
+              description: The message ID
+        delete:
+            tags:
+                - Messages
+            summary: Delete a Message
+            operationId: DeleteaMessage
+            parameters: []
+            responses:
+                '200':
+                    description: ''
+                    headers: {}
+            deprecated: false
+            security:
+                - bearer: []
+components:
+    schemas:
+        PROD_SignUpUserRequest:
+            title: PROD_SignUpUserRequest
+            required:
+                - email
+                - password
+                - username
+                - givenName
+                - familyName
+                - dateOfBirth
+                - address
+            type: object
+            properties:
+                email:
+                    type: string
+                password:
+                    type: string
+                username:
+                    type: string
+                givenName:
+                    type: string
+                familyName:
+                    type: string
+                dateOfBirth:
+                    type: string
+                address:
+                    type: string
+            example:
+                email: sara@gmail.com
+                password: secret123
+                username: sara
+                givenName: Sara
+                familyName: Madden
+                dateOfBirth: 02-01-1995
+                address: 125 Oak
+        PROD_AuthenticationUserRequest:
+            title: PROD_AuthenticationUserRequest
+            required:
+                - email
+                - password
+            type: object
+            properties:
+                email:
+                    type: string
+                password:
+                    type: string
+            example:
+                email: maggie@gmail.com
+                password: secret123
+        PROD_CreatebookwithoutimageRequest:
+            title: PROD_CreatebookwithoutimageRequest
+            required:
+                - title
+                - language
+                - ageRange
+                - publishingYear
+                - status
+                - description
+                - genre
+                - author
+            type: object
+            properties:
+                title:
+                    type: string
+                language:
+                    type: string
+                ageRange:
+                    type: string
+                publishingYear:
+                    type: string
+                status:
+                    type: string
+                description:
+                    type: string
+                genre:
+                    type: string
+                author:
+                    type: string
+            example:
+                title: Pachinko
+                language: English
+                ageRange: adults
+                publishingYear: '2021'
+                status: open
+                description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                genre: Historical Fiction
+                author: Min Jin Lee
+        PROD_UpdateBookRequest:
+            title: PROD_UpdateBookRequest
+            required:
+                - title
+                - language
+                - ageRange
+                - publishingYear
+                - status
+                - description
+                - genre
+                - author
+            type: object
+            properties:
+                title:
+                    type: string
+                language:
+                    type: string
+                ageRange:
+                    type: string
+                publishingYear:
+                    type: string
+                status:
+                    type: string
+                description:
+                    type: string
+                genre:
+                    type: string
+                author:
+                    type: string
+            example:
+                title: Pachinko
+                language: English
+                ageRange: adults
+                publishingYear: '2019'
+                status: open
+                description: Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.
+                genre: Historical Fiction
+                author: Min Jin Lee
+        PROD_CreateMessageRequest:
+            title: PROD_CreateMessageRequest
+            required:
+                - receivedByUser
+                - messageContent
+            type: object
+            properties:
+                receivedByUser:
+                    type: string
+                messageContent:
+                    type: string
+            example:
+                receivedByUser: 642de404692aeccd4ad96542
+                messageContent: '456 '
+        PROD_UpdateMarkConversationasReadRequest:
+            title: PROD_UpdateMarkConversationasReadRequest
+            required:
+                - partnerId
+            type: object
+            properties:
+                partnerId:
+                    type: string
+            example:
+                partnerId: 641a9ac03cf5c88e0ce54c35
+    securitySchemes:
+        bearer:
+            type: http
+            scheme: bearer
+security: []
+tags:
+    - name: Misc
+      description: ''
+    - name: Auth
+      description: ''
+    - name: Books
+      description: ''
+    - name: Address
+      description: ''
+    - name: Messages
+      description: ''
