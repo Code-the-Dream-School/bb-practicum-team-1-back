@@ -54,15 +54,37 @@ const getSingleBook = async (req, res) => {
 //get All Books for all user
 
 const getAllBooks = async (req, res) => {
-    const { title, author, sort, fields, searchRadius, latitude, longitude } =
-        req.query
-    const queryObject = {} //instead of putting this into find we can create a new object for that.
+    const {
+        titles,
+        authors,
+        genres,
+        sort,
+        fields,
+        searchRadius,
+        latitude,
+        longitude,
+    } = req.query
+    const queryObject = {}
 
-    if (title) {
-        queryObject.title = title
+    if (titles) {
+        const titleList = titles
+            .split(' ')
+            .map((title) => new RegExp(title, 'i'))
+
+        queryObject.title = { $in: titleList }
     }
-    if (author) {
-        queryObject.author = author
+    if (authors) {
+        const authorList = authors
+            .split(' ')
+            .map((author) => new RegExp(author, 'i'))
+        queryObject.author = { $in: authorList }
+    }
+
+    if (genres) {
+        const genreList = genres
+            .split(' ')
+            .map((genre) => new RegExp(genre, 'i'))
+        queryObject.genre = { $in: genreList }
     }
 
     let result = Book.find(queryObject).populate(
@@ -73,9 +95,9 @@ const getAllBooks = async (req, res) => {
     if (sort) {
         //sorting our response based on user selection.
         const sortList = sort.split(',').join(' ') //splitting sort options as an array and join them together!
-        result = result.sort(sortList)
+        result = result.sort(`${-sortList}`)
     } else {
-        result = result.sort('createdAt')
+        result = result.sort('-createdAt')
     }
 
     if (fields) {
