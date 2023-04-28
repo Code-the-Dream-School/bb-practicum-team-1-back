@@ -23,7 +23,7 @@ router
 router.route('/').post(authenticateUser, upload.single('image'), createBook)
 router.route('/image/:id').get(getImage)
 
-router.route('/:userId').get(getBooksUserId)
+router.route('/user/:userId').get(getBooksUserId)
 router.route('/:id').get(getSingleBook)
 router.route('/').get(getAllBooks)
 module.exports = router

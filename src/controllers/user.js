@@ -5,6 +5,9 @@ const addressToCoordinate = require('../util/addressToCoordinate')
 
 const signUp = async (req, res) => {
     const userAddress = req.body.address
+    if (!userAddress) {
+        throw new BadRequestError('Please provide address.')
+    }
     const { latitude, longitude, address } = await addressToCoordinate(
         userAddress
     )
@@ -39,6 +42,11 @@ const authentication = async (req, res) => {
     const user = await User.findOne({ email })
 
     if (!user) {
+        throw new UnauthenticatedError('Credentials are invalid')
+    }
+
+    const isPasswordCorrect = await user.comparePassword(password)
+    if (!isPasswordCorrect) {
         throw new UnauthenticatedError('Credentials are invalid')
     }
 
