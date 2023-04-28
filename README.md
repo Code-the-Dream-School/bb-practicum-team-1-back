@@ -39,6 +39,14 @@ in-case you need assistance from your mentors.
 4. Copy the API Key and paste it to the .env file, you can see the example on .env.example file for your reference
 5. Save your .env file and you're now authorized to access the API from geoapify.com
 
+### Seeding Data into MongoDB Database
+
+You can use different command to seeding the data into database, clear it from database, and clear then seed it into the database
+
+1. Go to your terminal and type: npm run seed-database for seeding the data into your database
+2. Type npm run clear-database for deleting all the data from database
+3. Type npm run reset-database for deleting all the data from database and then seeding it into the database, this command works like a reset button on your phone/other devices.
+
 #### Running the back-end server in Visual Studio Code
 
 ![vsc running](images/back-end-running-vsc.png)
