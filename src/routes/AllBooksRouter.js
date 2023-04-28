@@ -19,7 +19,7 @@ router.route('/user').get(authenticateUser, getAllBooksUser)
 router
     .route('/:id')
     .delete(authenticateUser, deleteBook)
-    .post(authenticateUser, updatebook)
+    .post(authenticateUser, upload.single('image'), updatebook)
 router.route('/').post(authenticateUser, upload.single('image'), createBook)
 router.route('/image/:id').get(getImage)
 
