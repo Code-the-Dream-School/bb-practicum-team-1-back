@@ -209,7 +209,6 @@ const updatebook = async (req, res) => {
             contentType: req.file.mimetype,
         }
     }
-    console.log(updateFields)
     const book = await Book.findOneAndUpdate(
         { _id: bookId, owner: userId },
         updateFields, //the part which gonna be upadated
