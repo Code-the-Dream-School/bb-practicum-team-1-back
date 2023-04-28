@@ -382,5 +382,347 @@
         "description": "The Woman in the Window is a thriller novel by American author AJ Finn, published by William Morrow on January 2, 2018. The novel has been translated into more than 40 languages, and has sold millions of copies worldwide.",
         "genre": "Thriller",
         "author": "AJ Finn"     
+    },
+    {
+        "_id": "644b65a8906bea161276f625",
+        "title": "Anna Karenina",
+        "language": "Russian",
+        "ageRange": "adults",
+        "publishingYear": 2001,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "Acclaimed by many as the world's greatest novel, Anna Karenina provides a vast panorama of contemporary life in Russia and of humanity in general. In it Tolstoy uses his intense imaginative insight to create some of the most memorable characters in all of literature. Anna is a sophisticated woman who abandons her empty existence as the wife of Karenin and turns to Count Vronsky to fulfil her passionate nature - with tragic consequences. Levin is a reflection of Tolstoy himself, often expressing the author's own views and convictions.",
+        "genre": "Romance",
+        "author": "Leo Tolstoy",
+        "createdAt": "2023-04-28T06:20:24.884Z",
+        "updatedAt": "2023-04-28T06:20:24.884Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b65a8906bea161276f625"
+    },
+    {
+        "_id": "644b6806906bea161276f62e",
+        "title": "Atlantida",
+        "language": "Spanish",
+        "ageRange": "adults",
+        "publishingYear": 2010,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "Gabriel Espada, un cínico buscavidas sin oficio ni beneficio, quizá el más improbable de los héroes, tiene ante sí una misión: descubrir el secreto de la Atlántida.\nLa joven geóloga Iris Gudrundóttir intuye que se avecina una erupción en cadena de los principales volcanes de la Tierra y confiesa sus temores a Gabriel. Para evitar esta catástrofe, que podría provocar una nueva Edad de Hielo, Gabriel tendrá que bucear en el pasado. El hundimiento de la Atlántida le ofrecerá la clave para comprender el comportamiento anómalo del planeta.",
+        "genre": "Fantasy",
+        "author": "Javier Negrete",
+        "createdAt": "2023-04-28T06:30:30.875Z",
+        "updatedAt": "2023-04-28T06:30:30.875Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b6806906bea161276f62e"
+    },
+    {
+        "_id": "644b6956906bea161276f636",
+        "title": "Fenomenul Pitești",
+        "language": "Romanian",
+        "ageRange": "adults",
+        "publishingYear": 1981,
+        "owner": {
+            "_id": "641cc0a509842e20b0bb987f",
+            "username": "sammy00"
+        },
+        "status": "open",
+        "description": "Ceea ce s-a petrecut la inchisoarea din Pitesti intre 1949 si 1952 merita un loc aparte in inspaimantatorul repertoriu al ororilor concentrationare ale veacului al XX-lea. \"Fenomenul Pitesti\" apartine aceluiasi registru, la care vine insa cu o trasatura specifica: utilizarea sistematica a torturarii detinutilor de catre alti detinuti. Ideea ii apartine pedagogului sovietic Makarenko (1888-1939), specialist in delincventa juvenila si partizan al reeducarii detinutilor tineri cu ajutorul detinutilor mai vechi, aflati pe calea cea buna, dar facand parte din aceeasi clasa de varsta.",
+        "genre": "History",
+        "author": "Virgil Ierunca",
+        "createdAt": "2023-04-28T06:36:06.767Z",
+        "updatedAt": "2023-04-28T06:36:06.767Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b6956906bea161276f636"
+    },
+    {
+        "_id": "644b6d04906bea161276f63a",
+        "title": "من او",
+        "language": "Persian",
+        "ageRange": "adults",
+        "publishingYear": 2002,
+        "owner": {
+            "_id": "641cc0a509842e20b0bb987f",
+            "username": "sammy00"
+        },
+        "status": "open",
+        "description": "داستان مربوط به زندگی فردی به نام علی فتاح است و عشق پاک او با دختر خدمتکار خانواده اش به نام مه تاب که به دلیل اعتقاد علی به عشق پاک تا زمانی که از عشق راستین خود مطمئن نشده از ازدواج امتناع می‌کند و در خلال داستان از راهنمایی‌های درویشی مصطفی نام، از سلسله‌ای نامعلوم کمک می گیرد که نقش مهمی در داستان نیز دارد. مه تاب و علی هر دو عاقبت ناکام از دنیا می روند تا در جهان آخرت با یکدیگر ازدواج کنند. دو راوی در داستان هستند، یکی خود رضا امیرخانی و دیگر قهرمان داستان (علی فتاح)و این دو ماجراهای زندگی علی فتاح را از کودکی تا لحظهٔ مرگ / ازدواج، روایت می‌کند.",
+        "genre": "Romance",
+        "author": "Reza Amirkhani",
+        "createdAt": "2023-04-28T06:51:48.973Z",
+        "updatedAt": "2023-04-28T06:51:48.973Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b6d04906bea161276f63a"
+    },
+    {
+        "_id": "644b6ea8906bea161276f641",
+        "title": "Crematorio",
+        "language": "Spanish",
+        "ageRange": "adults",
+        "publishingYear": 2007,
+        "owner": {
+            "_id": "641a9ac03cf5c88e0ce54c35",
+            "username": "John"
+        },
+        "status": "open",
+        "description": "La muerte de Matías Bertomeu, el ideólogo que cambió la revolución por la agricultura, pone en marcha los mecanismos que componen \"Crematorio\". El dolor devuelve el reverso de vidas levantadas sobre oscuros cimientos: la del hermano de Matías, Rubén, el constructor sin escrúpulos; la de Silvia, la hija de Rubén, biempensante restauradora de arte casada con Juan Mullor, el catedrático que prepara la biografía de Federico Brouard, viejo amigo de los Bertomeu, un escritor alcohólico que vive el fracaso de sus últimos días; la de Ramón Collado, el hombre que hizo los trabajos sucios del constructor; la de Traian, el mafioso ruso, viejo socio de Rubén; y la de Mónica, la jovencísima y ambiciosa esposa. ",
+        "genre": "Thriller",
+        "author": "Rafael Chirbes",
+        "createdAt": "2023-04-28T06:58:48.229Z",
+        "updatedAt": "2023-04-28T06:58:48.229Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b6ea8906bea161276f641"
+    },
+    {
+        "_id": "644b700b906bea161276f646",
+        "title": "Bumi Manusia",
+        "language": "Indonesian",
+        "ageRange": "adults",
+        "publishingYear": 1980,
+        "owner": {
+            "_id": "641bc406592aeccd4ad96856",
+            "username": "ginnyS"
+        },
+        "status": "open",
+        "description": "Roman Tetralogi Buru mengambil latar belakang dan cikal bakal nation Indonesia di awal abad ke-20. Dengan membacanya waktu kita dibalikkan sedemikian rupa dan hidup di era membibitnya pergerakan nasional mula-mula, juga pertautan rasa, kegamangan jiwa, percintaan, dan pertarungan kekuatan anonim para srikandi yang mengawal penyemaian bangunan nasional yang kemudian kelak melahirkan Indonesia modern.",
+        "genre": "Historical Fiction",
+        "author": "Pramoedya Ananta Toer",
+        "createdAt": "2023-04-28T07:04:43.077Z",
+        "updatedAt": "2023-04-28T07:04:43.077Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b700b906bea161276f646"
+    },
+    {
+        "_id": "644b711d906bea161276f650",
+        "title": "Larasati",
+        "language": "Indonesian",
+        "ageRange": "adults",
+        "publishingYear": 1960,
+        "owner": {
+            "_id": "641cc0a509842e20b0bb987f",
+            "username": "sammy00"
+        },
+        "status": "open",
+        "description": "LARASATI – sebuah roman revolusi semasa perjuangan bersenjata 1945-1950. Kisah tentang pemuda-pemuda Indonesia yang rela membaktikan jiwa raga demi proklamasi kemerdekaan, kisah-kisah tentang para pahlawan sejati dan pahlawan munafik, pertarungan di daerah republik dan daerah pendudukan Belanda – antara yang setia dan yang menyeberang, antara uang ORI dan uang Nica, dengan wanita sebagai tokoh utama – bintang film tenar yang dengan caranya sendiri memberikan diri dan segalanya untuk kemenangan revolusi.",
+        "genre": "Historical Fiction",
+        "author": "Pramoedya Ananta Toer",
+        "createdAt": "2023-04-28T07:09:17.520Z",
+        "updatedAt": "2023-04-28T07:09:17.520Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b711d906bea161276f650"
+    },
+    {
+        "_id": "644b7524906bea161276f65f",
+        "title": "جای خالی سلوچ",
+        "language": "Persian",
+        "ageRange": "adults",
+        "publishingYear": 1979,
+        "owner": {
+            "_id": "6413f8ee3b117c5517f3f604",
+            "username": "Manizha"
+        },
+        "status": "open",
+        "description": "جای خالی سلوچ رمانی رئالیستی از محمود دولت‌آبادی است که بلافاصله پس از آزادی از زندان ساواک و طی ۷۰ روز نوشته‌است. دولت‌آبادی داستان آن را به هنگامی که دورهٔ سه سالهٔ حبس را می‌گذراند در ذهنش پرورانده بود.\n\nداستان جای خالی سلوچ روایت دردمندانه زندگی یک زن روستایی در یکی از نقاط دورافتادهٔ ایران است که سعی می‌کند پس از ناپدید شدن ناگهانی شوهرش کانون خانواده را همچنان حفظ کند.",
+        "genre": "Historical Fiction",
+        "author": "Mahmoud Dowlatabadi",
+        "createdAt": "2023-04-28T07:26:28.396Z",
+        "updatedAt": "2023-04-28T07:26:28.396Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7524906bea161276f65f"
+    },
+    {
+        "_id": "644b7499906bea161276f65a",
+        "title": "Инь и Ян - чёрная версия",
+        "language": "Russian",
+        "ageRange": "adults",
+        "publishingYear": 2006,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "Инь и Ян\"— это театральный эксперимент. Один и тот же сюжет изложен в двух версиях, внешне похожих одна на другую, но принадлежащих двум совершенно разным мирам.\nПо форме это детектив, расследование ведет великий сыщик Эраст Фандорин, которому помогает его верный слуга Маса.\nПьеса была написана специально для режиссера Алексея Бородина (Российский академический молодежный театр).",
+        "genre": "Mystery",
+        "author": "Boris Akunin",
+        "createdAt": "2023-04-28T07:24:09.955Z",
+        "updatedAt": "2023-04-28T07:24:09.955Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7499906bea161276f65a"
+    },
+    {
+        "_id": "644b7773906bea161276f664",
+        "title": "Liliacul",
+        "language": "Romanian",
+        "ageRange": "adults",
+        "publishingYear": 1997,
+        "owner": {
+            "_id": "64228248dbfea3789fbbb870",
+            "username": "Harry"
+        },
+        "status": "open",
+        "description": "Inspectorul criminalist Harry Hole de la Poliția din Oslo este detașat la Sydney ca să-i asiste pe omologii săi australieni în rezolvarea unui caz de crimă. Harry e liber să le ofere ajutor, însă a primit instrucțiuni clare să se țină departe de necazuri. Victima — o norvegiană de douăzeci și trei de ani — este o mică celebritate în țara ei.Nefiind genul care să stea deoparte, Harry se împrietenește cu unul dintre detectivii însărcinați cu investigarea cazului și cu unul dintre martori, implicându-se tot mai mult în găsirea ucigașului. Împreună, cei trei descoperă că uciderea tinerei face parte dintr-un șir de cazuri neelucidate, tiparul crimelor indicând că autorul ar fi un psihopat care acționează în toată țara",
+        "genre": "Mystery",
+        "author": "Jo Nesbø",
+        "createdAt": "2023-04-28T07:36:19.671Z",
+        "updatedAt": "2023-04-28T07:36:19.671Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7773906bea161276f664"
+    },
+    {
+        "_id": "644b784b906bea161276f669",
+        "title": "At Sea",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2023,
+        "owner": {
+            "_id": "64228248dbfea3789fbbb870",
+            "username": "Harry"
+        },
+        "status": "open",
+        "description": "When Cara and Brendan first meet, she’s fresh out of college, recovering from the recent death of her mother and spending time on Martha’s Vineyard while trying to figure out her next steps. She’s swept away by Brendan’s humor and charm and intoxicated by his thrilling, dangerous secret: he claims that he can breathe underwater.",
+        "genre": "Thriller",
+        "author": "Emma Fedor",
+        "createdAt": "2023-04-28T07:39:55.508Z",
+        "updatedAt": "2023-04-28T07:39:55.508Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b784b906bea161276f669"
+    },
+    {
+        "_id": "644b7978906bea161276f671",
+        "title": "The Golden Compass",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1995,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "Lyra is rushing to the cold, far North, where witch clans and armored bears rule. North, where the Gobblers take the children they steal--including her friend Roger. North, where her fearsome uncle Asriel is trying to build a bridge to a parallel world.",
+        "genre": "Young Adult",
+        "author": "Philip Pulman",
+        "createdAt": "2023-04-28T07:44:56.842Z",
+        "updatedAt": "2023-04-28T07:44:56.842Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7978906bea161276f671"
+    },
+    {
+        "_id": "644b7ab3906bea161276f675",
+        "title": "The Giving Tree",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1964,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "This is a tender story, touched with sadness, aglow with consolation. Shel Silverstein has created a moving parable for readers of all ages that offers an affecting interpretation of the gift of giving and a serene acceptance of another's capacity to love in return.",
+        "genre": "Young Adult",
+        "author": "Shel Silverstein",
+        "createdAt": "2023-04-28T07:50:11.805Z",
+        "updatedAt": "2023-04-28T07:50:11.805Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7ab3906bea161276f675"
+    },
+    {
+        "_id": "644b7b39906bea161276f677",
+        "title": "Fox in Socks",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1965,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "Dr. Seuss gives fair warning to anyone brave enough to read along with the Fox in Socks, who likes to play tongue-twisting games with his friend Mr. Knox.",
+        "genre": "Young Adult",
+        "author": "Dr.Seuss",
+        "createdAt": "2023-04-28T07:52:25.585Z",
+        "updatedAt": "2023-04-28T07:52:25.585Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7b39906bea161276f677"
+    },
+    {
+        "_id": "644b7ba2906bea161276f679",
+        "title": "The Lorax",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 1971,
+        "owner": {
+            "_id": "641cd404692aeccd4ad96873",
+            "username": "zoeyRhy"
+        },
+        "status": "open",
+        "description": "Long before saving the earth became a global concern, Dr. Seuss, speaking through his character the Lorax, warned against mindless progress and the danger it posed to the earth's natural beauty.His classic cautionary tale is now available in an irresistible mini-edition, perfect for backpack or briefcase, for Arbor Day, Earth Day, and every day.",
+        "genre": "Young Adult",
+        "author": "Dr.Seuss",
+        "createdAt": "2023-04-28T07:54:10.527Z",
+        "updatedAt": "2023-04-28T07:54:10.527Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7ba2906bea161276f679"
+    },
+    {
+        "_id": "644b7cfa906bea161276f67f",
+        "title": "The Mystery of the Blue Train",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2007,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "A mysterious woman, a legendary cursed jewel, and a night train from London to the French Riviera -- ingredients for the perfect romance or the perfect crime? When the train stops, the jewel is missing, and the woman is found dead in her compartment. It's the perfect mystery, filled with passion, greed, deceit, and confusion. Is Hercule Poirot is the perfect detective to solve it?",
+        "genre": "Mystery",
+        "author": "Agatha Christie",
+        "createdAt": "2023-04-28T07:59:54.942Z",
+        "updatedAt": "2023-04-28T07:59:54.942Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7cfa906bea161276f67f"
+    },
+    {
+        "_id": "644b7d6d906bea161276f681",
+        "title": "The Curator",
+        "language": "English",
+        "ageRange": "adults",
+        "publishingYear": 2023,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "A Dickensian fantasy of illusion and charm where cats are revered as religious figures, thieves are noble, scholars are revolutionaries, and conjurers are the most wonderful criminals you can imagine.",
+        "genre": "Thriller",
+        "author": "Owen King",
+        "createdAt": "2023-04-28T08:01:49.797Z",
+        "updatedAt": "2023-04-28T08:01:49.797Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7d6d906bea161276f681"
+    },
+    {
+        "_id": "644b7eb4906bea161276f685",
+        "title": "Max the Brave",
+        "language": "English",
+        "ageRange": "kids",
+        "publishingYear": 2014,
+        "owner": {
+            "_id": "6414b320fed4b0cf8e8912d0",
+            "username": "elliesweet"
+        },
+        "status": "open",
+        "description": "A  New York Times  and  USA Today  Bestseller! Max is a fearless kitten. Max is a brave kitten. Max is a kitten who chases mice. There's only one Max doesn't know what a mouse looks like! With a little bit of bad advice, Max finds himself facing a much bigger challenge. Maybe Max doesn't have to be Max the Brave all the time... Join this adventurous black cat as he very politely asks a variety of animals for help in finding a mouse. Young readers will delight in Max's mistakes, while adults will love the subtle, tongue-in-cheek humor of this new children's classic.",
+        "genre": "Young Adult",
+        "author": "Ed Vere",
+        "createdAt": "2023-04-28T08:07:16.243Z",
+        "updatedAt": "2023-04-28T08:07:16.243Z",
+        "__v": 0,
+        "imageURL": "https://localhost:8000/api/v1/books/image/644b7eb4906bea161276f685"
     }
 ]
