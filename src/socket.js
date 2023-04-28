@@ -1,12 +1,14 @@
 const socketio = require('socket.io')
 const authMiddleware = require('./../middleware/authenticationSocket')
 const { listPartnerUsers, userTypingStatus } = require('./controllers/message')
+
 const initiateSocket = (server) => {
-    const io = socketio(server) //This line creates a new instance of socket.io and passes in the server parameter, allowing it to listen for WebSocket connections on the same port as the HTTP server.
+    const io = socketio(server)
 
     //this is the authentication middleware we created for Socket.io
     io.use(authMiddleware)
-    const activeUsers = []
+
+    const activeUsers = {}
 
     io.on('connection', async (socket) => {
         //event listener for when a new client connects to the server using a WebSocket.
@@ -14,25 +16,24 @@ const initiateSocket = (server) => {
 
         //checks for the username when a client connect!
         const { userId } = socket.user
-        activeUsers.push(userId) // Add the user to the activeUsers array
-        // Get the list of partner users for the authenticated user.
-        const partnerUsers = await listPartnerUsers(userId, activeUsers)
+        activeUsers[userId] = socket // Add the user to the activeUsers object
 
+        // Get the list of partner users for the authenticated user.
+        const partnerUsers = await listPartnerUsers(
+            userId,
+            Object.keys(activeUsers)
+        )
         // Emit the list of partner users to the connected client.
         socket.emit('partnerUsers', partnerUsers)
-     
+
         // Listen for typing event
         socket.on('typing', (data) => {
             userTypingStatus(socket, data)
         })
-        
+
         socket.on('disconnect', () => {
-            //event listener for when a client disconnects from the server.
             console.log('User disconnected!')
-            const index = activeUsers.indexOf(socket.username)
-            if (index !== -1) {
-                activeUsers.splice(index, 1) //remove the username from the activeUser array.
-            }
+            delete activeUsers[userId] // Remove the user from the activeUsers object
         })
     })
 

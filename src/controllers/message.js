@@ -5,7 +5,6 @@ const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const Message = require('../../models/Message')
 
-// Create message
 const createMessage = async (req, res) => {
     const { userId } = req.user
     const { receivedByUser, messageContent } = req.body
@@ -14,6 +13,14 @@ const createMessage = async (req, res) => {
         receivedByUser,
         messageContent,
     })
+
+    const activeUsers = req.getActiveUsers()
+    const recipientSocketId = activeUsers[receivedByUser]?.id
+
+    if (recipientSocketId) {
+        //ensure that message is sent to user with specific userId
+        req.io.to(recipientSocketId).emit('newMessage', { message })
+    }
     res.status(StatusCodes.CREATED).json({ message })
 }
 
