@@ -4,6 +4,7 @@ const Book = require('../../models/Book')
 const User = require('../../models/User')
 const { BadRequestError, NotFoundError } = require('../../errors')
 const findBooksWithinRadius = require('../../middleware/findBooksWithinRadius')
+const { baseURL } = require('../util/constants')
 
 // get books by userId
 
@@ -22,7 +23,7 @@ const getBooksUserId = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/books/image/${x.id}`
+            y.imageURL = `${baseURL}/books/image/${x.id}`
         }
         return y
     })
@@ -47,7 +48,7 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `/api/v1/books/image/${bookId}`
+    y.imageURL = `${baseURL}/books/image/${bookId}`
     res.status(StatusCodes.OK).json(y)
 }
 
@@ -123,7 +124,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `/api/v1/books/image/${x.id}`
+                y.imageURL = `${baseURL}/books/image/${x.id}`
             }
             return y
         })
@@ -132,7 +133,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `/api/v1/books/image/${x.id}`
+                y.imageURL = `${baseURL}/books/image/${x.id}`
             }
             return y
         })
@@ -154,7 +155,7 @@ const getAllBooksUser = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `/api/v1/books/image/${x.id}`
+            y.imageURL = `${baseURL}/books/image/${x.id}`
         }
         return y
     })
@@ -171,7 +172,6 @@ const createBook = async (req, res) => {
     const { userId, username } = req.user
 
     req.body.owner = userId
-
     if (req.file) {
         req.body.image = {
             buffer: req.file.buffer,
@@ -179,7 +179,14 @@ const createBook = async (req, res) => {
         }
     }
     const book = await Book.create(req.body)
-    res.status(StatusCodes.CREATED).json({ username: username, book })
+
+    var y = JSON.parse(JSON.stringify(book))
+    if (y.image && y.image.buffer) {
+        delete y.image
+        y.imageURL = `${baseURL}/books/image/${book.id}`
+    }
+
+    res.status(StatusCodes.CREATED).json({ username: username, book: y })
 }
 
 //delete book
@@ -217,16 +224,16 @@ const updatebook = async (req, res) => {
         params: { id: bookId },
     } = req
 
+    let updateFields = { ...req.body } // create updateFields obj that will include all fields that need to be updated
     if (req.file) {
-        req.body.image = {
+        updateFields.image = {
             buffer: req.file.buffer,
             contentType: req.file.mimetype,
         }
     }
-
     const book = await Book.findOneAndUpdate(
         { _id: bookId, owner: userId },
-        req.body, //the part which gonna be upadated
+        updateFields, //the part which gonna be upadated
         { new: true, runValidators: true }
     )
     const owner = book.owner.toString()
@@ -237,12 +244,24 @@ const updatebook = async (req, res) => {
     if (userId !== owner) {
         throw new BadRequestError('you should be the owner')
     }
-    res.status(StatusCodes.OK).json({ book })
+
+    var y = JSON.parse(JSON.stringify(book))
+    if (y.image && y.image.buffer) {
+        delete y.image
+        y.imageURL = `${baseURL}/books/image/${book.id}`
+    }
+    res.status(StatusCodes.OK).json({ book: y })
 }
 
 //getImage
 const getImage = async (req, res) => {
     const book = await Book.findById(req.params.id)
+    if (!book || !book.image) {
+        console.log('Error: Image not found')
+        return res
+            .status(StatusCodes.NOT_FOUND)
+            .json({ msg: 'Image not found' })
+    }
     res.set('content-Type', book.image.contentType)
     res.status(StatusCodes.OK).send(book.image.buffer)
 }
