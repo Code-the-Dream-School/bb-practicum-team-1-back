@@ -104,4 +104,10 @@ const BookSchema = new mongoose.Schema(
     { timestamps: true } //  <=createdAt and updatedAt dates
 )
 
+BookSchema.pre('save', async function () {
+    if (this.imageLink) {
+        this.imageURL = this.imageLink
+    }
+})
+
 module.exports = mongoose.model('Book', BookSchema)

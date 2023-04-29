@@ -180,17 +180,13 @@ const createBook = async (req, res) => {
     }
 
     let book = await Book.create(req.body)
-    if (req.body.imageLink) {
-        book.imageLink = req.body.imageLink
-    } else {
-        var y = JSON.parse(JSON.stringify(book))
-        if (y.image && y.image.buffer) {
-            delete y.image
-            y.imageURL = `${baseURL}/books/image/${book.id}`
-        }
-        book = y
+
+    var y = JSON.parse(JSON.stringify(book))
+    if (y.image && y.image.buffer) {
+        delete y.image
+        y.imageURL = `${baseURL}/books/image/${book.id}`
     }
-    res.status(StatusCodes.CREATED).json({ username: username, book })
+    res.status(StatusCodes.CREATED).json({ username: username, book: y })
 }
 
 //delete book
