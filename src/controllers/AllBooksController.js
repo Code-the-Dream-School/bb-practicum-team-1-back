@@ -178,15 +178,19 @@ const createBook = async (req, res) => {
             contentType: req.file.mimetype,
         }
     }
-    const book = await Book.create(req.body)
 
-    var y = JSON.parse(JSON.stringify(book))
-    if (y.image && y.image.buffer) {
-        delete y.image
-        y.imageURL = `${baseURL}/books/image/${book.id}`
+    let book = await Book.create(req.body)
+    if (req.body.imageLink) {
+        book.imageLink = req.body.imageLink
+    } else {
+        var y = JSON.parse(JSON.stringify(book))
+        if (y.image && y.image.buffer) {
+            delete y.image
+            y.imageURL = `${baseURL}/books/image/${book.id}`
+        }
+        book = y
     }
-
-    res.status(StatusCodes.CREATED).json({ username: username, book: y })
+    res.status(StatusCodes.CREATED).json({ username: username, book })
 }
 
 //delete book

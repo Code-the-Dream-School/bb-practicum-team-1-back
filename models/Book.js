@@ -41,6 +41,9 @@ const BookSchema = new mongoose.Schema(
             buffer: Buffer,
             contentType: String,
         },
+        imageLink: {
+            type: String,
+        },
         description: {
             //about/preview
             type: String,
