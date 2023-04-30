@@ -13,7 +13,7 @@
         "description": "Are you ready to become a leader at the top of your game? Start by unlocking the secrets which will bring you unyielding success! Women Who Lead is an easy-to-read guide offering tips to achieve your dreams. Learn from successful female mentors who will show you the process step by step!",
         "genre": "Personal Growth",
         "author": "Charlene Helm Noelle McGough",
-        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+        "imageLink": "https://m.media-amazon.com/images/I/51yHV3VWVmL._SL500_.jpg"
     },
     {
         "_id": "64154dde2490d1529a43f298",
@@ -29,7 +29,7 @@
         "description": "This children's book teaches children about what it means to be a leader. Parents/guardians/loved ones are encouraged to read this book with children to discuss positive role models, leadership goals, and what it means to be a leader in a child's future.",
         "genre": "Self-Help & Motivational",
         "author": "Jasmine Garland McKinney Blake McKinney",
-        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+        "imageLink": "/https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1670788774i/65631824.jpg"
     },
     {
         "_id": "64154dde2490d1529a43e03f",
@@ -45,7 +45,7 @@
         "description": "Catrina and her family are moving to the coast of Northern California because her little sister, Maya, is sick. Cat isn't happy about leaving her friends for Bahía de la Luna, but Maya has cystic fibrosis and will benefit from the cool, salty air that blows in from the sea. As the girls explore their new home, a neighbor lets them in on a secret: There are ghosts in Bahía de la Luna. Maya is determined to meet one, but Cat wants nothing to do with them. As the time of year when ghosts reunite with their loved ones approaches, Cat must figure out how to put aside her fears for her sister's sake -- and her own.Raina Telgemeier has masterfully created a moving and insightful story about the power of family and friendship, and how it gives us the courage to do what we never thought possible.",
         "genre": "Horror",
         "author": "Raina Telgemeier",
-        "imageURL": "/api/v1/books/image/64154dde2490d1529a43e03f"
+        "imageLink": "https://images-na.ssl-images-amazon.com/images/I/51OU4ETOIVL.jpg"
     },
     {
         "_id": "6416956690945f31fefa1fcd",
@@ -61,7 +61,7 @@
         "description": "The great thing about “The House On Mango Street” is that it’s an interesting read. It’s written from the point of view of the writer. You can really feel what the protagonist (the main character) feels. The sentences are really short so it’s also easy to understand. There are a few challenging words and a little bit of descriptive language, but you can usually understand them with the context. Another great thing about this is book is that it gives you a deep understanding of a different culture.",
         "genre": "Mystery",
         "author": "Sandra Cisneros",
-        "imageURL": "/api/v1/books/image/6416956690945f31fefa1fcd"
+        "imageLink": "http://leacellodp.weebly.com/uploads/1/6/5/5/16558082/235129590.jpg"
     },
     {
         "_id": "6416960090945f31fefa1fcf",
@@ -77,7 +77,7 @@
         "description": "This story takes place in the present, which means the writer writes using simple grammar. All sentences are short and the vocabulary is relatively easy. The interesting grammar and short paragraphs make this a quick and easy book for ESL learners. This is an award-winning book and on the NY Times best books list, so it’s worth a read. This book deals with some heavy issues. If you’re looking for something light and happy to read over the summer vacation, you should not read this book.",
         "genre": "History",
         "author": "Jay Asher",
-        "imageURL": "/api/v1/books/image/6416960090945f31fefa1fcf"
+        "imageLink": "https://cdn2.penguin.com.au/covers/original/9780141387772.jpg"
     },
     {
         "_id": "6416969b90945f31fefa1fd1",
@@ -93,7 +93,7 @@
         "description": "Almost everyone knows the story of “Peter Pan” which is why this is an easy read. Being familiar with a story already helps the reader to understand the text better. This book is aimed at children, but it continues to be enjoyed by adults around the world too.",
         "genre": "History",
         "author": "J.M. Barrie",
-        "imageURL": "/api/v1/books/image/6416969b90945f31fefa1fd1"
+        "imageLink": "http://danecobain.com/reviews/wp-content/uploads/2013/06/portada-peter-pan.jpg"
     },
     {
         "_id": "64228248dbfea3789fbbb86f",
@@ -109,7 +109,8 @@
         "status": "open",
         "description": "Naomi wasn’t just running away from her wedding. She was riding to the rescue of her estranged twin to Knockemout, Virginia, a rough-around-the-edges town where disputes are settled the old-fashioned way…with fists and beer. Usually in that order.",
         "genre": "Travel",
-        "author": " Lucy Score "
+        "author": " Lucy Score ",
+        "imageLink": "https://www.hachette.com.au/content/books/9781399713740.jpg"
     },
     {
         "_id": "641b33f9a4b78376843f6c61",
@@ -124,24 +125,25 @@
         "status": "open",
         "description": "New York Times bestselling author Sally Rooney has returned with a sharp, romantic drama, Beautiful World, Where Are You. Two separate relationships are in chaos, threatening to ruin friendships. Vogue declares that the author has “invented a sensibility entirely of her own: Sunny and sharp.",
         "genre": "Travel",
-        "author": "  Sally Rooney "
+        "author": "  Sally Rooney ",
+        "imageLink": "https://kbimages1-a.akamaihd.net/214370f3-02d7-4a3f-874a-f5dbd8bd5554/1200/1200/False/beautiful-world-where-are-you.jpg"
     },
     {
         "_id": "641b35d0ca71d42c4252e2b3",
-        "userName": "Harry",
+        "userName": "ronW",
         "title": "Beautiful World, Where Are You",
         "language": "English",
         "ageRange": "adults",
         "publishingYear": 2002,
         "owner": {
-            "_id": "64228248dbfea3789fbbb870",
-            "username": "Harry"
+            "_id": "641ba404692aeccd4ad96865",
+            "username": "ronW"
         },
         "status": "open",
         "description": "New York Times bestselling author Sally Rooney has returned with a sharp, romantic drama, Beautiful World, Where Are You. Two separate relationships are in chaos, threatening to ruin friendships. Vogue declares that the author has “invented a sensibility entirely of her own: Sunny and sharp.",
         "genre": "History",
         "author": "Sally Rooney",
-        "imageURL": "/api/v1/books/image/641b35d0ca71d42c4252e2b3"
+        "imageLink": "https://kbimages1-a.akamaihd.net/214370f3-02d7-4a3f-874a-f5dbd8bd5554/1200/1200/False/beautiful-world-where-are-you.jpg"
     },
     {
         "_id": "641cebdc59bab455414b6fb7",
@@ -156,7 +158,8 @@
         "status": "open",
         "description": "The Alchemist (Portuguese: O Alquimista) is a novel by Brazilian author Paulo Coelho which was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller.",
         "genre": "Fantasy",
-        "author": "Paulo Coelho"
+        "author": "Paulo Coelho",
+        "imageLink": "https://interactive.wttw.com/sites/default/files/the-alchemist@2x.jpg"
     },
     {
         "_id": "641bdfde59bab467414b6ca0",
@@ -171,7 +174,8 @@
         "status": "open",
         "description": "Aleph is a 2011 novel by the Brazilian writer Paulo Coelho. An autobiographical account, it is his fourteenth major book, and touches on the theme of spirituality. Aleph was written in Coelho's native language, Portuguese.",
         "genre": "Fantasy",
-        "author": "Paulo Coelho"      
+        "author": "Paulo Coelho",
+        "imageLink": "https://paulocoelhofoundation.com/wp-content/uploads/2019/01/pc-bk-2010-aleph-cover-v2.jpg"      
     },
     {
         "_id": "641bdfde59bcb467414b6cb3",
@@ -186,7 +190,8 @@
         "status": "open",
         "description": "The people of Japan believe that everyone has an ikigai – a reason to jump out of bed each morning. And according to the residents of the Japanese island of Okinawa – the world’s longest-living people – finding it is the key to a longer and more fulfilled life.",
         "genre": "Personal Growth",
-        "author": "Hector Garcia"
+        "author": "Hector Garcia",
+        "imageLink": "https://cdn2.penguin.com.au/covers/original/9781786330895.jpg"   
     },
     {
         "_id": "641cebac95bab455414b6fd4",
@@ -201,7 +206,8 @@
         "status": "open",
         "description": "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language.",
         "genre": "Romance",
-        "author": "Jane Austen"
+        "author": "Jane Austen",
+        "imageLink": "https://www.readingsanctuary.com/wp-content/uploads/2018/03/pride-prejudice-book-cover.jpg"  
     },
     {
         "_id": "641bdfde59bab467414b9ac2",
@@ -216,7 +222,8 @@
         "status": "open",
         "description": "Emma Woodhouse is one of Austen's most captivating and vivid characters. Beautiful, spoilt, vain and irrepressibly witty, Emma organizes the lives of the inhabitants of her sleepy little village and plays matchmaker with devastating effect.",
         "genre": "Romance",
-        "author": "Jane Austen"      
+        "author": "Jane Austen",
+        "imageLink": "https://images-na.ssl-images-amazon.com/images/I/61wz2oMUJDL.jpg"        
     },
     {
         "_id": "641abfdc85bcb455414b6da7",
@@ -231,7 +238,8 @@
         "status": "open",
         "description": "Mansfield Park is the third published novel by Jane Austen, first published in 1814 by Thomas Egerton. A second edition was published in 1816 by John Murray, still within Austen's lifetime. The novel did not receive any public reviews until 1821.",
         "genre": "Romance",
-        "author": "Jane Austen"
+        "author": "Jane Austen",
+        "imageLink": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442632768i/6484787.jpg"  
     },
     {
         "_id": "641dfbac68bcb455414d9ad8",
@@ -246,7 +254,8 @@
         "status": "open",
         "description": "Diary of a Wimpy Kid is an American children's book series and media franchise created by author and cartoonist Jeff Kinney.[1][2] The series follows Greg Heffley, a middle-schooler who illustrates his daily life in a diary (although he constantly tells the audience that it is a journal).",
         "genre": "Graphic Novel",
-        "author": "Jeff Kinney"
+        "author": "Jeff Kinney",
+        "imageLink": "https://images-na.ssl-images-amazon.com/images/I/610KBkwRQDL._SL500_.jpg"
     },
     {
         "_id": "641cebdc87bdb425414b6fc6",
@@ -261,7 +270,8 @@
         "status": "open",
         "description": "The beloved animation classic by legendary Studio Ghibli director Hayao Miyazaki, My Neighbor Totoro is now retold in novel form.",
         "genre": "Fantasy",
-        "author": "Hayao Miyazaki"
+        "author": "Hayao Miyazaki",
+        "imageLink": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421561202/my-neighbor-totoro-a-novel-9781421561202_hr.jpg"
     },
     {
         "_id": "641bbcde82bab467424b9ba6",
@@ -276,7 +286,8 @@
         "status": "open",
         "description": "When Marnie Was There is a novel by British author Joan G. Robinson, first published in 1967 by Collins. The story follows Anna, a young girl who temporarily moves to Norfolk to heal after becoming ill. There she meets a mysterious and headstrong girl named Marnie who lives in a house overlooking the marshes. They develop a secretive relationship they come to cherish.",
         "genre": "Fantasy",
-        "author": "Joan G. Robinson"      
+        "author": "Joan G. Robinson",
+        "imageLink": "https://cdn.waterstones.com/bookjackets/large/9780/0075/9780007591350.jpg"      
     },
     {
         "_id": "641cccdc59bab455414b6cd5",
@@ -291,7 +302,8 @@
         "status": "open",
         "description": "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012. The title is inspired by Act 1, Scene 2 of Shakespeare's play Julius Caesar, in which the nobleman Cassius says to Brutus: Men at some time were masters of their fates, / The fault, dear Brutus, is not in our stars, / But in ourselves, that we are underlings.The story is narrated by Hazel Grace Lancaster, a 16-year-old girl with thyroid cancer that has affected her lungs. Hazel is forced by her parents to attend a support group where she subsequently meets and falls in love with 17-year-old Augustus Waters, an ex-basketball player, amputee, and survivor of osteosarcoma.",
         "genre": "Romance",
-        "author": "John Green"
+        "author": "John Green",
+        "imageLink": "https://cdn.penguin.com.au/covers/original/9780143567592.jpg"  
     },
     {
         "_id": "641bdfdc59bab455414b6cd9",
@@ -306,7 +318,8 @@
         "status": "open",
         "description": "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons.",
         "genre": "Mystery",
-        "author": "Dan Brown"      
+        "author": "Dan Brown",
+        "imageLink": "https://cdn2.penguin.com.au/covers/original/9780552159715.jpg"        
     },
     {
         "_id": "641cccdc68bcb455414b6cb3",
@@ -321,7 +334,8 @@
         "status": "open",
         "description": "Angels & Demons is a 2000 bestselling mystery-thriller novel written by American author Dan Brown and published by Pocket Books and then by Corgi Books. The novel introduces the character Robert Langdon, who recurs as the protagonist of Brown's subsequent novels.",
         "genre": "Mystery",
-        "author": "Dan Brown"
+        "author": "Dan Brown",
+        "imageLink": "https://booktree.ng/wp-content/uploads/2018/06/angels-and-demons-by-dan-brown.jpg"  
     },
     {
         "_id": "641cebab87bdb425314b6ff7",
@@ -336,7 +350,8 @@
         "status": "open",
         "description": "Memoirs of a Geisha is a historical fiction novel by American author Arthur Golden, published in 1997. The novel, told in first person perspective, tells the story of Nitta Sayuri and the many trials she faces on the path to becoming and working as a geisha in Kyoto, Japan, before, during and after World War II.",
         "genre": "Historical Fiction",
-        "author": "Arthur Golden"
+        "author": "Arthur Golden",
+        "imageLink": "https://images-eu.ssl-images-amazon.com/images/I/41WFG8J2MJL.jpg"  
     },
     {
         "_id": "642269aef562cad511ed0a73",
@@ -351,7 +366,8 @@
         "status": "open",
         "description": "Pachinko is the second novel by Harlem-based author and journalist Min Jin Lee. Published in 2017, Pachinko is an epic historical fiction novel following a Korean family who immigrates to Japan. The character-driven story features an ensemble of characters who encounter racism, discrimination, stereotyping, and other aspects of the 20th-century Korean experience of Japan.",
         "genre": "Historical Fiction",
-        "author": "Min Jin Lee"     
+        "author": "Min Jin Lee",
+        "imageLink": "https://i.pinimg.com/originals/23/49/25/23492513adb4d5690bdca5c30aff27e5.jpg"      
     },
     {
         "_id": "641aebcb87bdb4825314b6b4",
@@ -366,7 +382,8 @@
         "status": "open",
         "description": "Gone Girl is a 2012 crime thriller novel by American writer Gillian Flynn. It was published by Crown Publishing Group in June 2012. The novel was popular and made the New York Times Best Seller list. The sense of suspense in the novel comes from whether Nick Dunne is responsible for the disappearance of his wife Amy.",
         "genre": "Thriller",
-        "author": "Gillian Flynn"
+        "author": "Gillian Flynn",
+        "imageLink": "https://i.pinimg.com/originals/49/9c/0d/499c0d47affbfdabfff9e52b8b9da7c8.jpg" 
     },
     {
         "_id": "642269abf562cad511ed0b37",
@@ -381,7 +398,8 @@
         "status": "open",
         "description": "The Woman in the Window is a thriller novel by American author AJ Finn, published by William Morrow on January 2, 2018. The novel has been translated into more than 40 languages, and has sold millions of copies worldwide.",
         "genre": "Thriller",
-        "author": "AJ Finn"     
+        "author": "AJ Finn",
+        "imageLink": "https://shereads.com/wp-content/uploads/2019/12/wiwcover-1361x2048.jpeg"      
     },
     {
         "_id": "644b65a8906bea161276f625",
@@ -400,7 +418,7 @@
         "createdAt": "2023-04-28T06:20:24.884Z",
         "updatedAt": "2023-04-28T06:20:24.884Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b65a8906bea161276f625"
+        "imageLink": "https://www.readandcobooks.co.uk/wp-content/uploads/anna-karenina-tolstoy-9781528718196-cover.jpg"
     },
     {
         "_id": "644b6806906bea161276f62e",
@@ -419,7 +437,7 @@
         "createdAt": "2023-04-28T06:30:30.875Z",
         "updatedAt": "2023-04-28T06:30:30.875Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b6806906bea161276f62e"
+        "imageLink": "https://unlibroparaestanoche.files.wordpress.com/2011/04/5601-1.jpg"
     },
     {
         "_id": "644b6956906bea161276f636",
@@ -438,7 +456,7 @@
         "createdAt": "2023-04-28T06:36:06.767Z",
         "updatedAt": "2023-04-28T06:36:06.767Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b6956906bea161276f636"
+        "imageLink": "https://www.egumenita.ro/admin/upload/1/ierunca-virgil-fenomenul-pitesti-22002.jpg"
     },
     {
         "_id": "644b6d04906bea161276f63a",
@@ -457,7 +475,7 @@
         "createdAt": "2023-04-28T06:51:48.973Z",
         "updatedAt": "2023-04-28T06:51:48.973Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b6d04906bea161276f63a"
+        "imageLink": "https://www.adinehbook.com/images-1/images/products/964471539X._SR,1000_.jpg"
     },
     {
         "_id": "644b6ea8906bea161276f641",
@@ -476,7 +494,7 @@
         "createdAt": "2023-04-28T06:58:48.229Z",
         "updatedAt": "2023-04-28T06:58:48.229Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b6ea8906bea161276f641"
+        "imageLink": "https://www.anagrama-ed.es/uploads/media/portadas/0001/23/70a4cc47befb368dd214baa606b7c81117d49723.jpeg"
     },
     {
         "_id": "644b700b906bea161276f646",
@@ -495,7 +513,7 @@
         "createdAt": "2023-04-28T07:04:43.077Z",
         "updatedAt": "2023-04-28T07:04:43.077Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b700b906bea161276f646"
+        "imageLink": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565658920l/1398034._SY475_.jpg"
     },
     {
         "_id": "644b711d906bea161276f650",
@@ -514,7 +532,7 @@
         "createdAt": "2023-04-28T07:09:17.520Z",
         "updatedAt": "2023-04-28T07:09:17.520Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b711d906bea161276f650"
+        "imageLink": "https://www.bukukita.com/babacms/displaybuku/98755_f.jpg"
     },
     {
         "_id": "644b7524906bea161276f65f",
@@ -533,7 +551,7 @@
         "createdAt": "2023-04-28T07:26:28.396Z",
         "updatedAt": "2023-04-28T07:26:28.396Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7524906bea161276f65f"
+        "imageLink": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1268611739l/302983.jpg"
     },
     {
         "_id": "644b7499906bea161276f65a",
@@ -552,7 +570,7 @@
         "createdAt": "2023-04-28T07:24:09.955Z",
         "updatedAt": "2023-04-28T07:24:09.955Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7499906bea161276f65a"
+        "imageLink": "https://akonit.net/image/cache/catalog/feed_3/33594-3464661-1000x1000.jpg"
     },
     {
         "_id": "644b7773906bea161276f664",
@@ -571,7 +589,7 @@
         "createdAt": "2023-04-28T07:36:19.671Z",
         "updatedAt": "2023-04-28T07:36:19.671Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7773906bea161276f664"
+        "imageLink": "https://cdn.dc5.ro/img-prod/189437033-1.jpeg"
     },
     {
         "_id": "644b784b906bea161276f669",
@@ -590,7 +608,7 @@
         "createdAt": "2023-04-28T07:39:55.508Z",
         "updatedAt": "2023-04-28T07:39:55.508Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b784b906bea161276f669"
+        "imageLink": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982171544/at-sea-9781982171544_hr.jpg"
     },
     {
         "_id": "644b7978906bea161276f671",
@@ -609,7 +627,7 @@
         "createdAt": "2023-04-28T07:44:56.842Z",
         "updatedAt": "2023-04-28T07:44:56.842Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7978906bea161276f671"
+        "imageLink": "https://afuse8production.slj.com/wp-content/uploads/2012/06/GoldenCompass1.jpg"
     },
     {
         "_id": "644b7ab3906bea161276f675",
@@ -628,7 +646,7 @@
         "createdAt": "2023-04-28T07:50:11.805Z",
         "updatedAt": "2023-04-28T07:50:11.805Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7ab3906bea161276f675"
+        "imageLink": "https://images-na.ssl-images-amazon.com/images/I/91wKebAnLpL.jpg"
     },
     {
         "_id": "644b7b39906bea161276f677",
@@ -647,7 +665,7 @@
         "createdAt": "2023-04-28T07:52:25.585Z",
         "updatedAt": "2023-04-28T07:52:25.585Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7b39906bea161276f677"
+        "imageLink": "https://cdn.shoplightspeed.com/shops/611345/files/5420315/dr-seuss-library-fox-in-socks.jpg"
     },
     {
         "_id": "644b7ba2906bea161276f679",
@@ -666,7 +684,7 @@
         "createdAt": "2023-04-28T07:54:10.527Z",
         "updatedAt": "2023-04-28T07:54:10.527Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7ba2906bea161276f679"
+        "imageLink": "https://fthmb.tqn.com/8e5O5Fpt4Bd53hxCpF5onTUBxNk=/1194x1656/filters:fill(auto,1)/lorax-597f13009abed50010c7da1d.jpg"
     },
     {
         "_id": "644b7cfa906bea161276f67f",
@@ -685,7 +703,7 @@
         "createdAt": "2023-04-28T07:59:54.942Z",
         "updatedAt": "2023-04-28T07:59:54.942Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7cfa906bea161276f67f"
+        "imageLink": "https://files.readanybook.com/1165932/files/the-mystery-of-the-blue-train.jpg"
     },
     {
         "_id": "644b7d6d906bea161276f681",
@@ -704,7 +722,7 @@
         "createdAt": "2023-04-28T08:01:49.797Z",
         "updatedAt": "2023-04-28T08:01:49.797Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7d6d906bea161276f681"
+        "imageLink": "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982196806/the-curator-9781982196806_xlg.jpg"
     },
     {
         "_id": "644b7eb4906bea161276f685",
@@ -723,6 +741,6 @@
         "createdAt": "2023-04-28T08:07:16.243Z",
         "updatedAt": "2023-04-28T08:07:16.243Z",
         "__v": 0,
-        "imageURL": "https://localhost:8000/api/v1/books/image/644b7eb4906bea161276f685"
+        "imageLink": "http://prodimage.images-bn.com/pimages/9781492657064_p0_v2_s1200x630.jpg"
     }
 ]
