@@ -41,6 +41,9 @@ const BookSchema = new mongoose.Schema(
             buffer: Buffer,
             contentType: String,
         },
+        imageLink: {
+            type: String,
+        },
         description: {
             //about/preview
             type: String,
@@ -100,5 +103,11 @@ const BookSchema = new mongoose.Schema(
     },
     { timestamps: true } //  <=createdAt and updatedAt dates
 )
+
+BookSchema.pre('save', async function () {
+    if (this.imageLink) {
+        this.imageURL = this.imageLink
+    }
+})
 
 module.exports = mongoose.model('Book', BookSchema)
