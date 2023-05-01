@@ -65,7 +65,9 @@ const getMessageConversation = async (req, res) => {
             { postedByUser: partnerId, receivedByUser: userId },
             { postedByUser: userId, receivedByUser: partnerId },
         ],
-    }).sort({ createdAt: 1 })
+    })
+        .populate('postedByUser', 'username')
+        .sort({ createdAt: 1 })
 
     res.status(StatusCodes.OK).json({ messages })
 }
