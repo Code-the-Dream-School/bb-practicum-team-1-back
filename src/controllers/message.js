@@ -30,8 +30,16 @@ const getAllMessages = async (req, res) => {
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
     })
-        .populate('postedByUser', 'username')
-        .populate('receivedByUser', 'username')
+        .populate({
+            path: 'postedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
+        .populate({
+            path: 'receivedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
         .sort({ createdAt: 1 })
 
     const groupedMessages = messages.reduce((acc, curr) => {
@@ -98,7 +106,10 @@ const markConversationAsRead = async (req, res) => {
                 { postedByUser: partnerId, receivedByUser: userId },
                 { postedByUser: userId, receivedByUser: partnerId },
             ],
-        }).sort({ createdAt: 1 })
+        })
+            .populate('postedByUser', 'username')
+            .populate('receivedByUser', 'username')
+            .sort({ createdAt: 1 })
 
         return res.status(StatusCodes.OK).json({ updatedMessages })
     } catch (err) {
@@ -134,8 +145,16 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }],
     })
-        .populate('postedByUser', 'username')
-        .populate('receivedByUser', 'username')
+        .populate({
+            path: 'postedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
+        .populate({
+            path: 'receivedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
 
     const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
     messages.map((x) => {
