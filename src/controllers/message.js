@@ -134,6 +134,8 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }],
     })
+        .populate('postedByUser', 'username')
+        .populate('receivedByUser', 'username')
 
     const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
     messages.map((x) => {
