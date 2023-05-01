@@ -172,10 +172,11 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const partnersArray = Array.from(messagePartners) // convert Set() to array again!
 
     const partnersWithStatus = partnersArray.map((partner) => {
+        const username = partner.replace(/^{ username: '(.*)' }$/, '$1')
         if (activeUsers.includes(partner)) {
-            return { userId: partner, status: 'online' }
+            return { username: username, status: 'online' }
         } else {
-            return { userId: partner, status: 'offline' }
+            return { username: username, status: 'offline' }
         }
     })
     return partnersWithStatus
