@@ -29,7 +29,10 @@ const getAllMessages = async (req, res) => {
     const { userId } = req.user
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
-    }).sort({ createdAt: 1 })
+    })
+        .populate('postedByUser', 'username')
+        .populate('receivedByUser', 'username')
+        .sort({ createdAt: 1 })
 
     const groupedMessages = messages.reduce((acc, curr) => {
         //here we are checking whether the userId is recipient or sender, otherUser would be the other one!
@@ -67,6 +70,7 @@ const getMessageConversation = async (req, res) => {
         ],
     })
         .populate('postedByUser', 'username')
+        .populate('receivedByUser', 'username')
         .sort({ createdAt: 1 })
 
     res.status(StatusCodes.OK).json({ messages })
