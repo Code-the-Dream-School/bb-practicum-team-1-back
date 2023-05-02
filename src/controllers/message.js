@@ -29,10 +29,7 @@ const getAllMessages = async (req, res) => {
     const { userId } = req.user
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
-    })
-        .populate('postedByUser', 'username')
-        .populate('receivedByUser', 'username')
-        .sort({ createdAt: 1 })
+    }).sort({ createdAt: 1 })
 
     const groupedMessages = messages.reduce((acc, curr) => {
         //here we are checking whether the userId is recipient or sender, otherUser would be the other one!
@@ -68,10 +65,7 @@ const getMessageConversation = async (req, res) => {
             { postedByUser: partnerId, receivedByUser: userId },
             { postedByUser: userId, receivedByUser: partnerId },
         ],
-    })
-        .populate('postedByUser', 'username')
-        .populate('receivedByUser', 'username')
-        .sort({ createdAt: 1 })
+    }).sort({ createdAt: 1 })
 
     res.status(StatusCodes.OK).json({ messages })
 }
@@ -134,14 +128,11 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }],
     })
-        .populate('postedByUser', 'username')
-        .populate('receivedByUser', 'username')
 
     const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
     messages.map((x) => {
         const postedByUser = x.postedByUser
         const receivedByUser = x.receivedByUser
-
         const otherUser =
             userId === postedByUser.toString()
                 ? receivedByUser.toString()
