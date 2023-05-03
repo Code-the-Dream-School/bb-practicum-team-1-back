@@ -116,7 +116,7 @@ const markConversationAsRead = async (req, res) => {
             { new: true, runValidators: true }
         )
         // returning all updated message with new messageRead status
-        const updatedMessages = await Message.find({
+        const messages = await Message.find({
             $or: [
                 { postedByUser: partnerId, receivedByUser: userId },
                 { postedByUser: userId, receivedByUser: partnerId },
@@ -125,7 +125,7 @@ const markConversationAsRead = async (req, res) => {
 
         const groupedUsers = {}
 
-        for (const message of updatedMessages) {
+        for (const message of messages) {
             const otherUserId =
                 userId === message.postedByUser.toString()
                     ? message.receivedByUser.toString()
@@ -137,14 +137,14 @@ const markConversationAsRead = async (req, res) => {
                 groupedUsers[otherUserId] = {
                     userId: otherUserId,
                     username: user.username,
-                    updatedMessages: [],
+                    messages: [],
                 }
             } else {
-                groupedUsers[otherUserId].updatedMessages.push(message)
+                groupedUsers[otherUserId].messages.push(message)
             }
         }
-        const result = Object.values(groupedUsers)
-        return res.status(StatusCodes.OK).json({ result })
+        const updatedMessages = Object.values(groupedUsers)
+        return res.status(StatusCodes.OK).json({ updatedMessages })
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
     }
