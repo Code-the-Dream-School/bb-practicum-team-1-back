@@ -29,18 +29,7 @@ const getAllMessages = async (req, res) => {
     const { userId } = req.user
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
-    })
-        .populate({
-            path: 'postedByUser',
-            select: 'username -_id',
-            model: 'User',
-        })
-        .populate({
-            path: 'receivedByUser',
-            select: 'username -_id',
-            model: 'User',
-        })
-        .sort({ createdAt: 1 })
+    }).sort({ createdAt: 1 })
 
     const groupedMessages = messages.reduce((acc, curr) => {
         //here we are checking whether the userId is recipient or sender, otherUser would be the other one!
@@ -51,17 +40,45 @@ const getAllMessages = async (req, res) => {
 
         if (otherUser) {
             if (otherUser in acc) {
-                //If other user already exist in messages array, it will push the new message to it.
-                acc[otherUser].push(curr)
+                // If other user already exist in messages array, it will push the new message to it.
+                acc[otherUser].messages.push(curr)
             } else {
-                //otherwise it will create new array of messages!
-                acc[otherUser] = [curr]
+                // otherwise it will create new object
+                acc[otherUser] = {
+                    userId: otherUser,
+                    username: curr.otherUserName,
+                    messages: [curr],
+                }
             }
         }
         return acc
     }, {}) //this {}  is the initial value of the accumulator here, which is null.
 
-    res.status(StatusCodes.OK).json(groupedMessages)
+    const result = await Promise.all(
+        // get an array of groupedMessages obj that represent pair of users and their messages
+        Object.values(groupedMessages).map(async (curr) => {
+            // get the first key of current obj as otherUser's Id
+            const otherUser = curr[Object.keys(curr)[0]]
+            let username = ''
+            // check whether otherUser is the sender of the message and find their username using their Id
+            if (otherUser === curr.messages[0].postedByUser.toString()) {
+                const user = await User.findById(curr.messages[0].postedByUser)
+                username = user.username
+            } else if (
+                // check whether otherUser is the receiver of the message and find their username using their Id
+                otherUser === curr.messages[0].receivedByUser.toString()
+            ) {
+                const user = await User.findById(
+                    curr.messages[0].receivedByUser
+                )
+                username = user.username
+            }
+            // combine the Id of otherUser and its username as a key
+            return { [`${otherUser}:${username}`]: curr.messages }
+        })
+    ).then((values) => Object.assign({}, ...values))
+
+    res.status(StatusCodes.OK).json(result)
 }
 
 // Get message conversation
