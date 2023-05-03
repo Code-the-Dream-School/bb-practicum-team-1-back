@@ -21,6 +21,7 @@ const signUp = async (req, res) => {
 
     res.status(StatusCodes.CREATED).json({
         user: {
+            userId: user._id,
             email: user.email,
             username: user.username,
             givenName: user.givenName,
@@ -53,6 +54,7 @@ const authentication = async (req, res) => {
     const token = user.createJWT()
     res.status(StatusCodes.CREATED).json({
         user: {
+            userId: user._id,
             email: user.email,
             username: user.username,
             givenName: user.givenName,
