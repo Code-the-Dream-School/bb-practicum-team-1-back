@@ -2,8 +2,15 @@ const socketio = require('socket.io')
 const authMiddleware = require('./../middleware/authenticationSocket')
 const { listPartnerUsers, userTypingStatus } = require('./controllers/message')
 
+const originURL =
+    process.env.IS_LOCAL === 'TRUE'
+        ? 'http://localhost:3000'
+        : 'https://shelf-share-app.onrender.com'
+
 const initiateSocket = (server) => {
-    const io = socketio(server)
+    const io = socketio(server, {
+        cors: { origin: originURL, methods: ['GET', 'POST'] },
+    })
 
     //this is the authentication middleware we created for Socket.io
     io.use(authMiddleware)
