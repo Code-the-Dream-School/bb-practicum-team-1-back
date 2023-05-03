@@ -31,24 +31,32 @@ const getAllMessages = async (req, res) => {
         $or: [{ postedByUser: userId }, { receivedByUser: userId }], //We find all those messages which our userId sent or received. .
     }).sort({ createdAt: 1 })
 
-    const groupedMessages = messages.reduce((acc, curr) => {
+    // set up empty obj to accumulate groupedMessages
+    const groupedMessages = {}
+    // iterate each curr obj in the message array
+    for (const curr of messages) {
         //here we are checking whether the userId is recipient or sender, otherUser would be the other one!
         const otherUser =
             userId === curr.postedByUser.toString()
                 ? curr.receivedByUser.toString()
                 : curr.postedByUser.toString()
 
+        const user = await User.findById(otherUser)
+        const username = user.username
         if (otherUser) {
-            if (otherUser in acc) {
-                //If other user already exist in messages array, it will push the new message to it.
-                acc[otherUser].push(curr)
+            if (otherUser in groupedMessages) {
+                // If other user already exist in messages array, it will push the new message to it.
+                groupedMessages[otherUser].messages.push(curr)
             } else {
-                //otherwise it will create new array of messages!
-                acc[otherUser] = [curr]
+                // otherwise it will create new object
+                groupedMessages[otherUser] = {
+                    userId: otherUser,
+                    username: username,
+                    messages: [curr],
+                }
             }
         }
-        return acc
-    }, {}) //this {}  is the initial value of the accumulator here, which is null.
+    }
 
     res.status(StatusCodes.OK).json(groupedMessages)
 }
@@ -67,7 +75,28 @@ const getMessageConversation = async (req, res) => {
         ],
     }).sort({ createdAt: 1 })
 
-    res.status(StatusCodes.OK).json({ messages })
+    const groupedUsers = {}
+
+    for (const message of messages) {
+        const otherUserId =
+            userId === message.postedByUser.toString()
+                ? message.receivedByUser.toString()
+                : message.postedByUser.toString()
+
+        const user = await User.findById(otherUserId)
+
+        if (!groupedUsers[otherUserId]) {
+            groupedUsers[otherUserId] = {
+                userId: otherUserId,
+                username: user.username,
+                messages: [],
+            }
+        } else {
+            groupedUsers[otherUserId].messages.push(message)
+        }
+    }
+    const result = Object.values(groupedUsers)
+    res.status(StatusCodes.OK).json(result)
 }
 
 // Mark conversation as read
@@ -87,13 +116,34 @@ const markConversationAsRead = async (req, res) => {
             { new: true, runValidators: true }
         )
         // returning all updated message with new messageRead status
-        const updatedMessages = await Message.find({
+        const messages = await Message.find({
             $or: [
                 { postedByUser: partnerId, receivedByUser: userId },
                 { postedByUser: userId, receivedByUser: partnerId },
             ],
         }).sort({ createdAt: 1 })
 
+        const groupedUsers = {}
+
+        for (const message of messages) {
+            const otherUserId =
+                userId === message.postedByUser.toString()
+                    ? message.receivedByUser.toString()
+                    : message.postedByUser.toString()
+
+            const user = await User.findById(otherUserId)
+
+            if (!groupedUsers[otherUserId]) {
+                groupedUsers[otherUserId] = {
+                    userId: otherUserId,
+                    username: user.username,
+                    messages: [],
+                }
+            } else {
+                groupedUsers[otherUserId].messages.push(message)
+            }
+        }
+        const updatedMessages = Object.values(groupedUsers)
         return res.status(StatusCodes.OK).json({ updatedMessages })
     } catch (err) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message)
@@ -128,6 +178,16 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const messages = await Message.find({
         $or: [{ postedByUser: userId }, { receivedByUser: userId }],
     })
+        .populate({
+            path: 'postedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
+        .populate({
+            path: 'receivedByUser',
+            select: 'username -_id',
+            model: 'User',
+        })
 
     const messagePartners = new Set() //here we are creating a new Set() which the same as array but without duplicate value.
     messages.map((x) => {
@@ -145,10 +205,11 @@ const listPartnerUsers = async (userId, activeUsers) => {
     const partnersArray = Array.from(messagePartners) // convert Set() to array again!
 
     const partnersWithStatus = partnersArray.map((partner) => {
+        const username = partner.replace(/^{ username: '(.*)' }$/, '$1')
         if (activeUsers.includes(partner)) {
-            return { userId: partner, status: 'online' }
+            return { username: username, status: 'online' }
         } else {
-            return { userId: partner, status: 'offline' }
+            return { username: username, status: 'offline' }
         }
     })
     return partnersWithStatus
