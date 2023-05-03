@@ -6,8 +6,8 @@ const authMiddleware = (socket, next) => {
     const authHeader = socket.handshake.headers.authorization
 
     if (!authHeader || !authHeader.startsWith('Bearer')) {
-        throw new UnauthenticatedError(
-            'Authentication token missing or invalid'
+        return next(
+            new UnauthenticatedError('Authentication token missing or invalid')
         )
     }
     const token = authHeader.split(' ')[1]
