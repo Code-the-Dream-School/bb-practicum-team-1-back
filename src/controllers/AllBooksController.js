@@ -23,7 +23,7 @@ const getBooksUserId = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `${baseURL}/books/image/${x.id}`
+            y.imageLink = `${baseURL}/books/image/${x.id}`
         }
         return y
     })
@@ -48,7 +48,7 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageURL = `${baseURL}/books/image/${bookId}`
+    y.imageLink = `${baseURL}/books/image/${bookId}`
     res.status(StatusCodes.OK).json(y)
 }
 
@@ -124,7 +124,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `${baseURL}/books/image/${x.id}`
+                y.imageLink = `${baseURL}/books/image/${x.id}`
             }
             return y
         })
@@ -133,7 +133,7 @@ const getAllBooks = async (req, res) => {
             var y = JSON.parse(JSON.stringify(x))
             if (y.image && y.image.buffer) {
                 delete y.image
-                y.imageURL = `${baseURL}/books/image/${x.id}`
+                y.imageLink = `${baseURL}/books/image/${x.id}`
             }
             return y
         })
@@ -155,7 +155,7 @@ const getAllBooksUser = async (req, res) => {
         var y = JSON.parse(JSON.stringify(x))
         if (y.image && y.image.buffer) {
             delete y.image
-            y.imageURL = `${baseURL}/books/image/${x.id}`
+            y.imageLink = `${baseURL}/books/image/${x.id}`
         }
         return y
     })
@@ -184,7 +184,7 @@ const createBook = async (req, res) => {
     var y = JSON.parse(JSON.stringify(book))
     if (y.image && y.image.buffer) {
         delete y.image
-        y.imageURL = `${baseURL}/books/image/${book.id}`
+        y.imageLink = `${baseURL}/books/image/${book.id}`
     }
     res.status(StatusCodes.CREATED).json({ username: username, book: y })
 }
@@ -248,7 +248,7 @@ const updatebook = async (req, res) => {
     var y = JSON.parse(JSON.stringify(book))
     if (y.image && y.image.buffer) {
         delete y.image
-        y.imageURL = `${baseURL}/books/image/${book.id}`
+        y.imageLink = `${baseURL}/books/image/${book.id}`
     }
     res.status(StatusCodes.OK).json({ book: y })
 }
