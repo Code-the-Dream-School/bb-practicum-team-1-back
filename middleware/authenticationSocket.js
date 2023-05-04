@@ -3,17 +3,15 @@ const { UnauthenticatedError } = require('../errors')
 
 const authMiddleware = (socket, next) => {
     // check auth token in handshake headers
-    const authHeader = socket.handshake.headers.authorization
+    const jwtToken = socket.handshake.query.token
 
-    if (!authHeader || !authHeader.startsWith('Bearer')) {
+    if (!jwtToken) {
         return next(
             new UnauthenticatedError('Authentication token missing or invalid')
         )
     }
-    const token = authHeader.split(' ')[1]
-
     try {
-        const payload = jwt.verify(token, process.env.JWT_SECRET)
+        const payload = jwt.verify(jwtToken, process.env.JWT_SECRET)
         // attach the user to the socket object
         socket.user = { userId: payload.userId, username: payload.username }
         next()
