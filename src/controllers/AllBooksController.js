@@ -48,7 +48,10 @@ const getSingleBook = async (req, res) => {
         throw new NotFoundError(`No book available with this id ${bookId}`)
     }
     var y = JSON.parse(JSON.stringify(book))
-    y.imageLink = `${baseURL}/books/image/${bookId}`
+    if (y.image && y.image.buffer) {
+        delete y.image
+        y.imageLink = `${baseURL}/books/image/${bookId}`
+    }
     res.status(StatusCodes.OK).json(y)
 }
 
